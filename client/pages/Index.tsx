@@ -1,3 +1,4 @@
+import { PageLayout } from "@/components/page-layout";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -20,13 +21,14 @@ import {
   Bot,
   Globe,
   Terminal,
+  Trophy,
+  CheckCircle,
+  Star,
+  TrendingUp,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { AccessibilityPanel } from "@/components/accessibility-panel";
 import { SEO } from "@/components/seo";
 import { SkipLinks } from "@/components/skip-links";
-import { AuthTrigger } from "@/components/auth-trigger";
 import { DashboardWidget } from "@/components/user-dashboard";
 import { useAuth } from "@/components/auth-provider";
 

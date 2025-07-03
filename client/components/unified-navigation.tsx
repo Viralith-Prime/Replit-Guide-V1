@@ -308,8 +308,15 @@ export function NavigationSidebar() {
             </SheetDescription>
           </SheetHeader>
 
-          <ScrollArea className="flex-1 px-6">
-            <nav className="space-y-6 pb-6">
+          <ScrollArea
+            className="flex-1 px-6"
+            style={{ scrollBehavior: "smooth" }}
+          >
+            <nav
+              className="space-y-6 pb-6"
+              role="navigation"
+              aria-label="Main navigation"
+            >
               {/* Recent and bookmarked sections for mobile */}
               {recentPages.length > 0 && (
                 <div>

@@ -92,19 +92,63 @@ function EnhancementNotice() {
 
 // User menu for authenticated users
 function UserMenu() {
-  const { user, logout, openAuthModal } = useAuth();
+  const { user, logout, openAuthModal, syncData } = useAuth();
   const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState({
+    sync: false,
+    logout: false,
+  });
 
   const handleLogout = async () => {
+    setIsLoading({ ...isLoading, logout: true });
     try {
       await logout();
+      toast({
+        title: "Signed out successfully",
+        description: "You have been securely logged out",
+      });
+      // Redirect to home page
+      window.location.href = "/";
     } catch (error) {
       toast({
         title: "Error",
         description: "Failed to sign out",
         variant: "destructive",
       });
+    } finally {
+      setIsLoading({ ...isLoading, logout: false });
     }
+  };
+
+  const handleSyncData = async () => {
+    setIsLoading({ ...isLoading, sync: true });
+    try {
+      await syncData();
+      toast({
+        title: "Data synchronized",
+        description: "Your data has been synced across all devices",
+      });
+    } catch (error) {
+      toast({
+        title: "Sync failed",
+        description: "Failed to synchronize data. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading({ ...isLoading, sync: false });
+    }
+  };
+
+  const handleProfileClick = () => {
+    window.location.href = "/profile";
+  };
+
+  const handleDashboardClick = () => {
+    window.location.href = "/dashboard";
+  };
+
+  const handleSettingsClick = () => {
+    window.location.href = "/settings";
   };
 
   if (!user) return null;

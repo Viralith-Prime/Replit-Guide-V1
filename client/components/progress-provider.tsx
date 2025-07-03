@@ -39,8 +39,22 @@ const ProgressContext = createContext<ProgressProviderState>({
 export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const [progress, setProgress] = useState<ProgressData>(() => {
     if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("replit-guide-progress");
-      return saved ? JSON.parse(saved) : initialProgress;
+      try {
+        const saved = localStorage.getItem("replit-guide-progress");
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          // Validate the structure to prevent corruption
+          if (
+            parsed &&
+            typeof parsed === "object" &&
+            Array.isArray(parsed.sectionsVisited)
+          ) {
+            return { ...initialProgress, ...parsed };
+          }
+        }
+      } catch (error) {
+        console.warn("Failed to parse progress data from localStorage:", error);
+      }
     }
     return initialProgress;
   });
@@ -48,7 +62,11 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const [sessionStart] = useState(Date.now());
 
   useEffect(() => {
-    localStorage.setItem("replit-guide-progress", JSON.stringify(progress));
+    try {
+      localStorage.setItem("replit-guide-progress", JSON.stringify(progress));
+    } catch (error) {
+      console.warn("Failed to save progress to localStorage:", error);
+    }
   }, [progress]);
 
   useEffect(() => {

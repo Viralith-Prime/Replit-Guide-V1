@@ -3,11 +3,138 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello world project</title>
-  </head>
+    <meta name="theme-color" content="#22c55e" />
+    <meta name="color-scheme" content="dark light" />
 
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://replit.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Performance and security meta tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+
+    <!-- Default meta tags (will be overridden by SEO component) -->
+    <title>Replit Guide - Master Cloud Development</title>
+    <meta
+      name="description"
+      content="Your comprehensive, interactive guide to mastering Replit. Learn everything from basics to advanced features with hands-on exercises."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Apple touch icon -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Web app manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Critical CSS (could be inlined here for better performance) -->
+    <style>
+      /* Critical loading styles */
+      .loading-screen {
+        position: fixed;
+        inset: 0;
+        background: hsl(240 10% 3.9%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+
+      .loading-dots {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .loading-dot {
+        width: 1rem;
+        height: 1rem;
+        background: hsl(142 76% 36%);
+        border-radius: 50%;
+        animation: loading-pulse 1.4s ease-in-out infinite both;
+      }
+
+      .loading-dot:nth-child(1) {
+        animation-delay: -0.32s;
+      }
+      .loading-dot:nth-child(2) {
+        animation-delay: -0.16s;
+      }
+      .loading-dot:nth-child(3) {
+        animation-delay: 0s;
+      }
+
+      @keyframes loading-pulse {
+        0%,
+        80%,
+        100% {
+          transform: scale(0);
+          opacity: 0.5;
+        }
+        40% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
   <body>
+    <!-- Loading screen shown while React loads -->
+    <div id="loading-screen" class="loading-screen">
+      <div class="loading-dots">
+        <div class="loading-dot"></div>
+        <div class="loading-dot"></div>
+        <div class="loading-dot"></div>
+      </div>
+    </div>
+
+    <!-- Main React app container -->
     <div id="root"></div>
+
+    <!-- Remove loading screen once React loads -->
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        // Hide loading screen after a short delay to ensure React has started
+        setTimeout(function () {
+          const loadingScreen = document.getElementById("loading-screen");
+          if (loadingScreen) {
+            loadingScreen.style.opacity = "0";
+            loadingScreen.style.transition = "opacity 0.3s ease-out";
+            setTimeout(function () {
+              loadingScreen.remove();
+            }, 300);
+          }
+        }, 100);
+      });
+
+      // Performance monitoring
+      window.addEventListener("load", function () {
+        // Log Core Web Vitals to console (in production, send to analytics)
+        if ("PerformanceObserver" in window) {
+          // Largest Contentful Paint
+          new PerformanceObserver((list) => {
+            const entries = list.getEntries();
+            console.log("LCP:", entries[entries.length - 1].startTime);
+          }).observe({ entryTypes: ["largest-contentful-paint"] });
+
+          // Cumulative Layout Shift
+          new PerformanceObserver((list) => {
+            let cls = 0;
+            list.getEntries().forEach((entry) => {
+              if (!entry.hadRecentInput) {
+                cls += entry.value;
+              }
+            });
+            console.log("CLS:", cls);
+          }).observe({ entryTypes: ["layout-shift"] });
+        }
+      });
+    </script>
 
     <script type="module" src="/client/App.tsx"></script>
   </body>

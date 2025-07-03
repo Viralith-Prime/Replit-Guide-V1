@@ -1,3 +1,4 @@
+import { PageLayout } from "@/components/page-layout";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -948,7 +949,7 @@ export default function CoreFeatures() {
                           </h4>
                           <ul className="text-xs space-y-1">
                             <li>• Pull before starting new work</li>
-                            <li>• Use descriptive branch names</li>
+                            <li>�� Use descriptive branch names</li>
                             <li>• Keep commits small and focused</li>
                             <li>• Test before pushing</li>
                             <li>• Review code before merging</li>

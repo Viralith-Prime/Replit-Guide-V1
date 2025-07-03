@@ -2325,7 +2325,7 @@ jobs:
       run: npm audit --audit-level high
 
     - name: Upload coverage reports
-      uses: codecov/codecov-action@v3
+    uses: codecov/codecov-action@v3
       with:
         file: ./coverage/lcov.info
 
@@ -2405,7 +2405,7 @@ deploy-to-replit:
 
   - name: Deploy to Replit
     env:
-      REPLIT_TOKEN: ${{ secrets.REPLIT_TOKEN }}
+      REPLIT_TOKEN: \${{ secrets.REPLIT_TOKEN }}
     run: |
       # Install Replit CLI
       npm install -g @replit/cli

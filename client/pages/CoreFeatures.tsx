@@ -39,6 +39,20 @@ import {
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
+const pageMetadata = {
+  title: "Core Features",
+  description: "Explore Replit's powerful development features and tools",
+  category: "learning" as const,
+  level: "intermediate" as const,
+  timeToComplete: "25-35 minutes",
+  prerequisites: ["Getting Started"],
+};
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Core Features", href: "/core-features" },
+];
+
 const coreSections = [
   {
     id: "languages",
@@ -949,7 +963,7 @@ export default function CoreFeatures() {
                           </h4>
                           <ul className="text-xs space-y-1">
                             <li>• Pull before starting new work</li>
-                            <li>�� Use descriptive branch names</li>
+                            <li>• Use descriptive branch names</li>
                             <li>• Keep commits small and focused</li>
                             <li>• Test before pushing</li>
                             <li>• Review code before merging</li>

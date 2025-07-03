@@ -88,7 +88,7 @@ const featuredProjects = [
   {
     title: "AI Chatbot Assistant",
     author: "DevMaster",
-    avatar: "/api/placeholder/32/32",
+    avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=DevMaster`,
     language: "Python",
     views: 8940,
     likes: 167,
@@ -99,7 +99,7 @@ const featuredProjects = [
   {
     title: "Expense Tracker App",
     author: "ReactNinja",
-    avatar: "/api/placeholder/32/32",
+    avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=ReactNinja`,
     language: "React",
     views: 6750,
     likes: 128,
@@ -112,7 +112,7 @@ const featuredProjects = [
 const topCommunityMembers = [
   {
     name: "CodeWizard",
-    avatar: "/api/placeholder/40/40",
+    avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=CodeWizard`,
     reputation: 15420,
     specialties: ["Python", "AI", "Data Science"],
     contributions: 234,
@@ -120,7 +120,7 @@ const topCommunityMembers = [
   },
   {
     name: "WebDev_Pro",
-    avatar: "/api/placeholder/40/40",
+    avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=WebDevPro`,
     reputation: 12100,
     specialties: ["React", "Node.js", "TypeScript"],
     contributions: 189,
@@ -128,7 +128,7 @@ const topCommunityMembers = [
   },
   {
     name: "GameBuilder",
-    avatar: "/api/placeholder/40/40",
+    avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=GameBuilder`,
     reputation: 9850,
     specialties: ["C++", "Unity", "Game Design"],
     contributions: 156,

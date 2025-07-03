@@ -90,11 +90,20 @@ const quickStats = [
   { icon: Terminal, label: "Lines of Code", value: "1B+" },
 ];
 
+const pageMetadata = {
+  title: "Interactive Replit Learning Guide",
+  description: "Master Replit with our comprehensive, interactive guide. Learn cloud development, AI tools, collaboration, and deployment with hands-on exercises.",
+  category: "learning" as const,
+  level: "beginner" as const,
+  timeToComplete: "Get started now",
+  prerequisites: [],
+};
+
 export default function Index() {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user } = useAuth();
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <SEO
         title="Interactive Replit Learning Guide"
         description="Master Replit with our comprehensive, interactive guide. Learn cloud development, AI tools, collaboration, and deployment with hands-on exercises."
@@ -102,31 +111,99 @@ export default function Index() {
       />
       <SkipLinks />
 
-      {/* Header */}
-      <header
-        id="navigation"
-        className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50"
-        role="banner"
+      <PageLayout
+        title="Home"
+        description="Master Replit with Confidence"
+        showBreadcrumbs={false}
+        showProgress={false}
+        metadata={pageMetadata}
       >
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 gradient-brand rounded-lg flex items-center justify-center">
-              <Code className="h-5 w-5 text-white" />
+        {/* Hero Section */}
+        <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+          <div className="container mx-auto px-4 py-20 sm:py-32">
+            <div className="text-center max-w-4xl mx-auto">
+              <h1 className="text-4xl sm:text-6xl font-bold tracking-tight mb-6">
+                Master Replit with{" "}
+                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Confidence
+                </span>
+              </h1>
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Your comprehensive guide to cloud development, AI-powered coding, and collaborative programming.
+                From beginner to expert, unlock the full potential of Replit.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                {!isAuthenticated ? (
+                  <>
+                    <Button size="lg" asChild className="text-base">
+                      <Link to="/getting-started">
+                        <Play className="h-5 w-5 mr-2" />
+                        Get Started
+                      </Link>
+                    </Button>
+                    <Button size="lg" variant="outline" asChild className="text-base">
+                      <Link to="/core-features">
+                        Explore Features
+                        <ArrowRight className="h-5 w-5 ml-2" />
+                      </Link>
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Button size="lg" asChild className="text-base">
+                      <Link to="/dashboard">
+                        <TrendingUp className="h-5 w-5 mr-2" />
+                        Continue Learning
+                      </Link>
+                    </Button>
+                    <Button size="lg" variant="outline" asChild className="text-base">
+                      <Link to="/profile">
+                        <Trophy className="h-5 w-5 mr-2" />
+                        View Progress
+                      </Link>
+                    </Button>
+                  </>
+                )}
+              </div>
+
+              {/* Quick Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+                {quickStats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="flex justify-center mb-2">
+                      <stat.icon className="h-8 w-8 text-primary" />
+                    </div>
+                    <div className="text-2xl font-bold">{stat.value}</div>
+                    <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <span className="text-xl font-bold">Replit Guide</span>
           </div>
-          <div className="flex items-center space-x-6">
-            <nav className="hidden md:flex items-center space-x-6">
-              <Link
-                to="/getting-started"
-                className="text-sm font-medium hover:text-primary transition-colors"
-              >
-                Getting Started
-              </Link>
-              <Link
-                to="/core-features"
-                className="text-sm font-medium hover:text-primary transition-colors"
-              >
+        </div>
+
+        {/* Personalized Dashboard Widget for Authenticated Users */}
+        {isAuthenticated && user && (
+          <div className="container mx-auto px-4 py-8">
+            <DashboardWidget />
+          </div>
+        )}
+
+        {/* Features Grid */}
+        <div className="container mx-auto px-4 py-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">
+              Everything You Need to Master Replit
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Follow our structured learning path designed by experts, with hands-on exercises
+              and real-world projects.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                 Features
               </Link>
               <Link

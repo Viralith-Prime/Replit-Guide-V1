@@ -214,6 +214,7 @@ interface AuthContextType extends AuthState {
   updateProfile: (data: Partial<User>) => Promise<void>;
   refreshSession: () => Promise<void>;
   checkSecurity: () => Promise<void>;
+  syncData: () => Promise<void>;
   openAuthModal: (
     step: AuthState["authModal"]["step"],
     provider?: AuthState["authModal"]["provider"],

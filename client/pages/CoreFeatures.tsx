@@ -180,19 +180,6 @@ export default function CoreFeatures() {
       metadata={pageMetadata}
     >
       <div className="flex">
-              </Link>
-            </Button>
-            <Separator orientation="vertical" className="h-6" />
-            <div className="flex items-center space-x-2">
-              <Code className="h-5 w-5 text-primary" />
-              <span className="font-semibold">Core Features</span>
-            </div>
-          </div>
-          <Badge variant="secondary">Section 2 of 6</Badge>
-        </div>
-      </header>
-
-      <div className="flex">
         {/* Sidebar Navigation */}
         <aside className="w-80 border-r border-border p-6 bg-muted/20 min-h-screen sticky top-16">
           <div className="space-y-6">

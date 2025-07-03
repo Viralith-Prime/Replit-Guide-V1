@@ -213,17 +213,6 @@ export default function Community() {
       metadata={pageMetadata}
     >
       <div className="flex">
-            <Separator orientation="vertical" className="h-6" />
-            <div className="flex items-center space-x-2">
-              <Users className="h-5 w-5 text-primary" />
-              <span className="font-semibold">Community Features</span>
-            </div>
-          </div>
-          <Badge variant="secondary">Section 4 of 6</Badge>
-        </div>
-      </header>
-
-      <div className="flex">
         {/* Sidebar Navigation */}
         <aside className="w-80 border-r border-border p-6 bg-muted/20 min-h-screen sticky top-16">
           <div className="space-y-6">

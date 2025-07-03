@@ -9,14 +9,19 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ProgressProvider } from "@/components/progress-provider";
 import { AccessibilityProvider } from "@/components/accessibility-provider";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import GettingStarted from "./pages/GettingStarted";
-import CoreFeatures from "./pages/CoreFeatures";
-import AITools from "./pages/AITools";
-import Community from "./pages/Community";
-import Pricing from "./pages/Pricing";
-import Advanced from "./pages/Advanced";
+import { Suspense, lazy } from "react";
+import { ErrorBoundary } from "@/components/error-boundary";
+import { Loading } from "@/components/loading";
+
+// Lazy load pages for better performance
+const Index = lazy(() => import("./pages/Index"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const GettingStarted = lazy(() => import("./pages/GettingStarted"));
+const CoreFeatures = lazy(() => import("./pages/CoreFeatures"));
+const AITools = lazy(() => import("./pages/AITools"));
+const Community = lazy(() => import("./pages/Community"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const Advanced = lazy(() => import("./pages/Advanced"));
 
 const queryClient = new QueryClient();
 
@@ -29,17 +34,24 @@ const App = () => (
             <Toaster />
             <Sonner />
             <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/getting-started" element={<GettingStarted />} />
-                <Route path="/core-features" element={<CoreFeatures />} />
-                <Route path="/ai-tools" element={<AITools />} />
-                <Route path="/community" element={<Community />} />
-                <Route path="/pricing" element={<Pricing />} />
-                <Route path="/advanced" element={<Advanced />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
+              <ErrorBoundary>
+                <Suspense fallback={<Loading variant="page" />}>
+                  <Routes>
+                    <Route path="/" element={<Index />} />
+                    <Route
+                      path="/getting-started"
+                      element={<GettingStarted />}
+                    />
+                    <Route path="/core-features" element={<CoreFeatures />} />
+                    <Route path="/ai-tools" element={<AITools />} />
+                    <Route path="/community" element={<Community />} />
+                    <Route path="/pricing" element={<Pricing />} />
+                    <Route path="/advanced" element={<Advanced />} />
+                    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Suspense>
+              </ErrorBoundary>
             </BrowserRouter>
           </TooltipProvider>
         </QueryClientProvider>

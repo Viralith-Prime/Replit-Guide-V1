@@ -40,6 +40,20 @@ import {
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
+const pageMetadata = {
+  title: "Community",
+  description: "Connect with other developers and share your projects",
+  category: "community" as const,
+  level: "beginner" as const,
+  timeToComplete: "15-20 minutes",
+  prerequisites: ["Getting Started"],
+};
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Community", href: "/community" },
+];
+
 const communitySections = [
   {
     id: "teams",

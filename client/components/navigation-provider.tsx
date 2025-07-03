@@ -59,6 +59,12 @@ interface NavigationContextType extends NavigationState {
   setBreadcrumbs: (breadcrumbs: Breadcrumb[]) => void;
   getFilteredNavigation: (category?: string) => NavigationItem[];
   searchPages: (query: string) => SearchResult[];
+  saveScrollPosition: (path: string, position: number) => void;
+  restoreScrollPosition: (path: string) => number;
+  setActiveSection: (section: string) => void;
+  setKeyboardFocus: (elementId: string | null) => void;
+  handleKeyboardNavigation: (event: KeyboardEvent) => void;
+  preloadPage: (path: string) => void;
 }
 
 const NavigationContext = createContext<NavigationContextType | undefined>(

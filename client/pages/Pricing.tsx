@@ -297,13 +297,16 @@ export default function Pricing() {
                     <strong>Beginners:</strong> Start with Free plan
                   </div>
                   <div className="text-xs">
-                    <strong>Students:</strong> Core plan with education discount
+                    <strong>Students:</strong> Core plan ($20/month) for
+                    advanced features
                   </div>
                   <div className="text-xs">
-                    <strong>Professionals:</strong> Pro plan for full features
+                    <strong>Professionals:</strong> Core plan for full
+                    individual features
                   </div>
                   <div className="text-xs">
-                    <strong>Companies:</strong> Teams plan for collaboration
+                    <strong>Organizations:</strong> Teams plan ($35/month) for
+                    collaboration
                   </div>
                 </div>
               </CardContent>

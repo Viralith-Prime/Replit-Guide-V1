@@ -41,6 +41,10 @@ interface NavigationState {
   isSearchOpen: boolean;
   recentPages: NavigationItem[];
   bookmarkedPages: string[];
+  scrollPositions: Record<string, number>;
+  activeSection: string;
+  keyboardFocus: string | null;
+  lastNavigationTime: number;
 }
 
 interface NavigationContextType extends NavigationState {

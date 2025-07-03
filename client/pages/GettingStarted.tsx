@@ -26,7 +26,9 @@ import {
   Zap,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useProgress } from "@/components/progress-provider";
+import { AchievementBadges } from "@/components/achievements";
 
 const sections = [
   {
@@ -82,13 +84,25 @@ const exerciseSteps = [
 export default function GettingStarted() {
   const [currentSection, setCurrentSection] = useState("account");
   const [checkedSteps, setCheckedSteps] = useState<number[]>([]);
+  const { markSectionVisited, markExerciseCompleted } = useProgress();
+
+  useEffect(() => {
+    markSectionVisited("getting-started");
+  }, [markSectionVisited]);
 
   const toggleStep = (stepIndex: number) => {
-    setCheckedSteps((prev) =>
-      prev.includes(stepIndex)
+    setCheckedSteps((prev) => {
+      const newSteps = prev.includes(stepIndex)
         ? prev.filter((i) => i !== stepIndex)
-        : [...prev, stepIndex],
-    );
+        : [...prev, stepIndex];
+
+      // Track exercise completion
+      if (!prev.includes(stepIndex)) {
+        markExerciseCompleted(`getting-started-step-${stepIndex}`);
+      }
+
+      return newSteps;
+    });
   };
 
   return (
@@ -133,6 +147,10 @@ export default function GettingStarted() {
               </button>
             ))}
           </nav>
+
+          <Separator className="my-6" />
+
+          <AchievementBadges />
 
           <Separator className="my-6" />
 

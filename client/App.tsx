@@ -9,6 +9,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ProgressProvider } from "@/components/progress-provider";
 import { AccessibilityProvider } from "@/components/accessibility-provider";
 import { AdaptiveLayoutProvider } from "@/components/adaptive-layout-provider";
+import { AuthProvider } from "@/components/auth-provider";
+import { AuthModal } from "@/components/auth-modal";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { ErrorBoundary } from "@/components/error-boundary";
@@ -32,30 +34,36 @@ const App = () => (
       <ThemeProvider defaultTheme="dark" storageKey="replit-guide-theme">
         <ProgressProvider>
           <QueryClientProvider client={queryClient}>
-            <TooltipProvider>
-              <Toaster />
-              <Sonner />
-              <BrowserRouter>
-                <ErrorBoundary>
-                  <Suspense fallback={<Loading variant="page" />}>
-                    <Routes>
-                      <Route path="/" element={<Index />} />
-                      <Route
-                        path="/getting-started"
-                        element={<GettingStarted />}
-                      />
-                      <Route path="/core-features" element={<CoreFeatures />} />
-                      <Route path="/ai-tools" element={<AITools />} />
-                      <Route path="/community" element={<Community />} />
-                      <Route path="/pricing" element={<Pricing />} />
-                      <Route path="/advanced" element={<Advanced />} />
-                      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                      <Route path="*" element={<NotFound />} />
-                    </Routes>
-                  </Suspense>
-                </ErrorBoundary>
-              </BrowserRouter>
-            </TooltipProvider>
+            <AuthProvider>
+              <TooltipProvider>
+                <Toaster />
+                <Sonner />
+                <BrowserRouter>
+                  <ErrorBoundary>
+                    <Suspense fallback={<Loading variant="page" />}>
+                      <Routes>
+                        <Route path="/" element={<Index />} />
+                        <Route
+                          path="/getting-started"
+                          element={<GettingStarted />}
+                        />
+                        <Route
+                          path="/core-features"
+                          element={<CoreFeatures />}
+                        />
+                        <Route path="/ai-tools" element={<AITools />} />
+                        <Route path="/community" element={<Community />} />
+                        <Route path="/pricing" element={<Pricing />} />
+                        <Route path="/advanced" element={<Advanced />} />
+                        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                        <Route path="*" element={<NotFound />} />
+                      </Routes>
+                    </Suspense>
+                    <AuthModal />
+                  </ErrorBoundary>
+                </BrowserRouter>
+              </TooltipProvider>
+            </AuthProvider>
           </QueryClientProvider>
         </ProgressProvider>
       </ThemeProvider>

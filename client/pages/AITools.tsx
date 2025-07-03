@@ -113,62 +113,63 @@ const promptExamples = [
 const aiCapabilities = [
   {
     icon: Code,
-    title: "Code Generation",
-    description: "Generate functions, classes, and complete programs",
+    title: "Ghostwriter",
+    description: "AI code completion, explanations, and refactoring",
     examples: [
-      "Functions with docstrings",
-      "API endpoints",
-      "Database schemas",
+      "Smart autocomplete",
+      "Code refactoring",
+      "Documentation generation",
     ],
   },
   {
-    icon: Bug,
-    title: "Error Debugging",
-    description: "Analyze and fix bugs in your code",
-    examples: ["Syntax errors", "Logic bugs", "Performance issues"],
+    icon: MessageSquare,
+    title: "AI Chat",
+    description: "Context-aware chat for code help and learning",
+    examples: ["Code explanations", "Bug fixing help", "Learning guidance"],
   },
   {
     icon: FileCode,
-    title: "Code Explanation",
-    description: "Understand complex code and algorithms",
+    title: "Prompt Templates",
+    description: "Custom prompt templates for various coding tasks",
     examples: [
-      "Line-by-line breakdown",
-      "Algorithm explanation",
-      "Best practices",
+      "Code generation prompts",
+      "Bug fixing templates",
+      "Documentation prompts",
     ],
   },
   {
     icon: Brain,
     title: "Learning Support",
-    description: "Get help understanding programming concepts",
-    examples: ["Concept explanations", "Practice exercises", "Code examples"],
+    description: "AI-powered assistance for understanding concepts",
+    examples: ["Concept explanations", "Practice exercises", "Code reviews"],
   },
 ];
 
 const limitations = [
   {
-    title: "Token Limits",
-    description: "Claude Sonnet has token limits per conversation",
-    impact: "Long conversations may require reset",
-    solution: "Break complex tasks into smaller chunks",
+    title: "Free Tier Limits",
+    description: "Free users get limited AI uses per month",
+    impact: "May run out of AI assistance during heavy usage",
+    solution: "Upgrade to Core plan for more AI access",
   },
   {
-    title: "Context Window",
-    description: "Limited memory of previous conversation",
-    impact: "May lose context in long sessions",
-    solution: "Provide relevant context in each prompt",
+    title: "AI Accuracy",
+    description: "Accuracy varies by prompt and programming language",
+    impact: "Generated code may need review and testing",
+    solution: "Always review and test AI-generated code",
   },
   {
-    title: "Real-time Information",
-    description: "No access to current web data or APIs",
-    impact: "Cannot fetch live information",
-    solution: "Provide necessary data in your prompts",
+    title: "Language Support",
+    description: "AI features work best with popular languages",
+    impact: "Less accurate for niche or newer languages",
+    solution:
+      "Use AI primarily for Python, JS, Java, and other popular languages",
   },
   {
-    title: "Code Execution",
-    description: "Cannot run or test code directly",
-    impact: "Cannot verify code functionality",
-    solution: "Test generated code in your repl",
+    title: "Context Awareness",
+    description: "AI may not fully understand project context",
+    impact: "May generate code that doesn't fit your specific needs",
+    solution: "Provide clear context and requirements in prompts",
   },
 ];
 
@@ -272,12 +273,12 @@ export default function AITools() {
             <div className="space-y-8">
               <div>
                 <h1 className="text-3xl font-bold mb-4">
-                  Replit AI Agent Introduction
+                  Replit AI Tools Introduction
                 </h1>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Replit's AI Agent is powered by Claude Sonnet, providing
-                  intelligent coding assistance, debugging help, and learning
-                  support directly in your workspace.
+                  Replit offers powerful AI tools including Ghostwriter for code
+                  completion and AI Chat for context-aware assistance, providing
+                  intelligent coding support directly in your workspace.
                 </p>
               </div>
 
@@ -576,8 +577,9 @@ export default function AITools() {
                   Understanding AI Limitations
                 </h1>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Understanding Claude Sonnet's limitations helps you use Replit
-                  AI more effectively and set appropriate expectations.
+                  Understanding Replit AI's limitations helps you use
+                  Ghostwriter and AI Chat more effectively and set appropriate
+                  expectations.
                 </p>
               </div>
 

@@ -245,13 +245,16 @@ export default function GettingStarted() {
                     <li>
                       Choose your preferred method:
                       <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
-                        <li>Email and password</li>
                         <li>Google account</li>
                         <li>GitHub account</li>
+                        <li>Apple account</li>
+                        <li>Email and password</li>
                       </ul>
                     </li>
-                    <li>Complete the verification process</li>
-                    <li>Choose your username (this will be your Replit URL)</li>
+                    <li>Complete email verification for full access</li>
+                    <li>
+                      Set up your profile: username, avatar, and optional bio
+                    </li>
                   </ol>
                 </CardContent>
               </Card>

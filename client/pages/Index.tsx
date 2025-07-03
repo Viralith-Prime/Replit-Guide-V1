@@ -141,6 +141,7 @@ export default function Index() {
               </Link>
             </nav>
             <div className="flex items-center space-x-2">
+              <AuthTrigger />
               <AccessibilityPanel />
               <ThemeToggle />
             </div>
@@ -150,6 +151,15 @@ export default function Index() {
 
       {/* Main Content */}
       <main id="main-content" role="main">
+        {/* User Dashboard Widget */}
+        {isAuthenticated && (
+          <section className="py-6 px-4">
+            <div className="container max-w-6xl mx-auto">
+              <DashboardWidget />
+            </div>
+          </section>
+        )}
+
         {/* Hero Section */}
         <section
           className="py-20 px-4 text-center bg-gradient-to-b from-background to-muted/20"

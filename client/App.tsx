@@ -11,6 +11,12 @@ import { AccessibilityProvider } from "@/components/accessibility-provider";
 import { AdaptiveLayoutProvider } from "@/components/adaptive-layout-provider";
 import { AuthProvider } from "@/components/auth-provider";
 import { AuthModal } from "@/components/auth-modal";
+import { NavigationProvider } from "@/components/navigation-provider";
+import {
+  UnifiedHeader,
+  NavigationSidebar,
+  GlobalSearch,
+} from "@/components/unified-navigation";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { ErrorBoundary } from "@/components/error-boundary";
@@ -40,29 +46,34 @@ const App = () => (
                 <Toaster />
                 <Sonner />
                 <BrowserRouter>
-                  <ErrorBoundary>
-                    <Suspense fallback={<Loading variant="page" />}>
-                      <Routes>
-                        <Route path="/" element={<Index />} />
-                        <Route
-                          path="/getting-started"
-                          element={<GettingStarted />}
-                        />
-                        <Route
-                          path="/core-features"
-                          element={<CoreFeatures />}
-                        />
-                        <Route path="/ai-tools" element={<AITools />} />
-                        <Route path="/community" element={<Community />} />
-                        <Route path="/pricing" element={<Pricing />} />
-                        <Route path="/advanced" element={<Advanced />} />
-                        <Route path="/profile" element={<Profile />} />
-                        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                        <Route path="*" element={<NotFound />} />
-                      </Routes>
-                    </Suspense>
-                    <AuthModal />
-                  </ErrorBoundary>
+                  <NavigationProvider>
+                    <ErrorBoundary>
+                      <UnifiedHeader />
+                      <NavigationSidebar />
+                      <GlobalSearch />
+                      <Suspense fallback={<Loading variant="page" />}>
+                        <Routes>
+                          <Route path="/" element={<Index />} />
+                          <Route
+                            path="/getting-started"
+                            element={<GettingStarted />}
+                          />
+                          <Route
+                            path="/core-features"
+                            element={<CoreFeatures />}
+                          />
+                          <Route path="/ai-tools" element={<AITools />} />
+                          <Route path="/community" element={<Community />} />
+                          <Route path="/pricing" element={<Pricing />} />
+                          <Route path="/advanced" element={<Advanced />} />
+                          <Route path="/profile" element={<Profile />} />
+                          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                          <Route path="*" element={<NotFound />} />
+                        </Routes>
+                      </Suspense>
+                      <AuthModal />
+                    </ErrorBoundary>
+                  </NavigationProvider>
                 </BrowserRouter>
               </TooltipProvider>
             </AuthProvider>

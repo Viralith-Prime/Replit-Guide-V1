@@ -906,7 +906,9 @@ echo "Deployment completed successfully!"`}</code>
                   <TabsTrigger value="basics">API Basics</TabsTrigger>
                   <TabsTrigger value="auth">Authentication</TabsTrigger>
                   <TabsTrigger value="examples">Examples</TabsTrigger>
-                  <TabsTrigger value="best-practices">Best Practices</TabsTrigger>
+                  <TabsTrigger value="best-practices">
+                    Best Practices
+                  </TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="basics" className="space-y-6">
@@ -922,7 +924,9 @@ echo "Deployment completed successfully!"`}</code>
                         <div className="space-y-4">
                           <div className="code-block">
                             <div className="flex items-center justify-between mb-3">
-                              <span className="text-sm font-medium">Fetch API</span>
+                              <span className="text-sm font-medium">
+                                Fetch API
+                              </span>
                               <Button
                                 size="sm"
                                 variant="ghost"
@@ -1010,25 +1014,33 @@ async function postData(userData) {
                     <CardContent>
                       <div className="grid md:grid-cols-4 gap-4">
                         <div className="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                          <h4 className="font-medium text-green-600 mb-1">GET</h4>
+                          <h4 className="font-medium text-green-600 mb-1">
+                            GET
+                          </h4>
                           <p className="text-xs text-muted-foreground">
                             Retrieve data from server
                           </p>
                         </div>
                         <div className="text-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                          <h4 className="font-medium text-blue-600 mb-1">POST</h4>
+                          <h4 className="font-medium text-blue-600 mb-1">
+                            POST
+                          </h4>
                           <p className="text-xs text-muted-foreground">
                             Create new resources
                           </p>
                         </div>
                         <div className="text-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
-                          <h4 className="font-medium text-yellow-600 mb-1">PUT</h4>
+                          <h4 className="font-medium text-yellow-600 mb-1">
+                            PUT
+                          </h4>
                           <p className="text-xs text-muted-foreground">
                             Update existing resources
                           </p>
                         </div>
                         <div className="text-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
-                          <h4 className="font-medium text-red-600 mb-1">DELETE</h4>
+                          <h4 className="font-medium text-red-600 mb-1">
+                            DELETE
+                          </h4>
                           <p className="text-xs text-muted-foreground">
                             Remove resources
                           </p>
@@ -1071,7 +1083,9 @@ const headers = {
                         </div>
 
                         <div>
-                          <h4 className="font-medium mb-3">3. Basic Authentication</h4>
+                          <h4 className="font-medium mb-3">
+                            3. Basic Authentication
+                          </h4>
                           <div className="code-block text-xs">
                             <code>{`// Username and password
 const credentials = btoa(\`\${username}:\${password}\`);
@@ -1215,7 +1229,9 @@ const londonWeather = await weather.getCurrentWeather('London');`}</code>
                     <CardContent>
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <h4 className="font-medium mb-3 text-green-600">✅ Do:</h4>
+                          <h4 className="font-medium mb-3 text-green-600">
+                            ✅ Do:
+                          </h4>
                           <ul className="space-y-1 text-sm">
                             <li>• Store API keys in environment variables</li>
                             <li>• Use HTTPS for all API calls</li>
@@ -1225,7 +1241,9 @@ const londonWeather = await weather.getCurrentWeather('London');`}</code>
                           </ul>
                         </div>
                         <div>
-                          <h4 className="font-medium mb-3 text-red-600">❌ Don't:</h4>
+                          <h4 className="font-medium mb-3 text-red-600">
+                            ❌ Don't:
+                          </h4>
                           <ul className="space-y-1 text-sm">
                             <li>• Hardcode API keys in source code</li>
                             <li>• Expose sensitive data in URLs</li>
@@ -1254,8 +1272,12 @@ const londonWeather = await weather.getCurrentWeather('London');`}</code>
 
               <Tabs defaultValue="deployment-types" className="w-full">
                 <TabsList className="grid w-full grid-cols-4">
-                  <TabsTrigger value="deployment-types">Deployment Types</TabsTrigger>
-                  <TabsTrigger value="custom-domains">Custom Domains</TabsTrigger>
+                  <TabsTrigger value="deployment-types">
+                    Deployment Types
+                  </TabsTrigger>
+                  <TabsTrigger value="custom-domains">
+                    Custom Domains
+                  </TabsTrigger>
                   <TabsTrigger value="optimization">Optimization</TabsTrigger>
                   <TabsTrigger value="monitoring">Monitoring</TabsTrigger>
                 </TabsList>
@@ -1285,7 +1307,8 @@ dist/ or build/
 replit deploy`}</code>
                           </div>
                           <div className="text-xs">
-                            <strong>Best for:</strong> SPAs, documentation sites, portfolios
+                            <strong>Best for:</strong> SPAs, documentation
+                            sites, portfolios
                           </div>
                         </div>
                       </CardContent>
@@ -1314,7 +1337,8 @@ PORT=3000
 replit deploy --always-on`}</code>
                           </div>
                           <div className="text-xs">
-                            <strong>Best for:</strong> APIs, web apps, real-time applications
+                            <strong>Best for:</strong> APIs, web apps, real-time
+                            applications
                           </div>
                         </div>
                       </CardContent>
@@ -1330,7 +1354,8 @@ replit deploy --always-on`}</code>
                       <CardContent>
                         <div className="space-y-3">
                           <p className="text-sm text-muted-foreground">
-                            Complete applications with frontend, backend, and database
+                            Complete applications with frontend, backend, and
+                            database
                           </p>
                           <div className="code-block text-xs">
                             <code>{`# Multi-service setup
@@ -1342,7 +1367,8 @@ database: PostgreSQL
 docker-compose up`}</code>
                           </div>
                           <div className="text-xs">
-                            <strong>Best for:</strong> Complete web applications, SaaS products
+                            <strong>Best for:</strong> Complete web
+                            applications, SaaS products
                           </div>
                         </div>
                       </CardContent>
@@ -1356,7 +1382,9 @@ docker-compose up`}</code>
                     <CardContent>
                       <div className="space-y-4">
                         <div>
-                          <h4 className="font-medium mb-2">replit.toml Configuration</h4>
+                          <h4 className="font-medium mb-2">
+                            replit.toml Configuration
+                          </h4>
                           <div className="code-block">
                             <pre className="text-xs overflow-x-auto">
                               <code>{`[deployment]
@@ -1397,7 +1425,9 @@ start = "typescript-language-server --stdio"`}</code>
                       <div className="space-y-4">
                         <div className="grid md:grid-cols-2 gap-4">
                           <div>
-                            <h4 className="font-medium mb-3">Step 1: Domain Setup</h4>
+                            <h4 className="font-medium mb-3">
+                              Step 1: Domain Setup
+                            </h4>
                             <ol className="list-decimal list-inside space-y-2 text-sm">
                               <li>Purchase domain from registrar</li>
                               <li>Go to Replit deployment settings</li>
@@ -1406,7 +1436,9 @@ start = "typescript-language-server --stdio"`}</code>
                             </ol>
                           </div>
                           <div>
-                            <h4 className="font-medium mb-3">Step 2: DNS Configuration</h4>
+                            <h4 className="font-medium mb-3">
+                              Step 2: DNS Configuration
+                            </h4>
                             <div className="code-block text-xs">
                               <code>{`# DNS Records to add:
 Type: CNAME
@@ -1421,11 +1453,13 @@ Value: [Replit IP address]`}</code>
                         </div>
 
                         <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                          <h4 className="font-medium text-sm mb-2">SSL Certificate</h4>
+                          <h4 className="font-medium text-sm mb-2">
+                            SSL Certificate
+                          </h4>
                           <p className="text-xs text-muted-foreground">
-                            Replit automatically provides SSL certificates for custom domains.
-                            It may take 24-48 hours for DNS propagation and certificate
-                            issuance to complete.
+                            Replit automatically provides SSL certificates for
+                            custom domains. It may take 24-48 hours for DNS
+                            propagation and certificate issuance to complete.
                           </p>
                         </div>
                       </div>
@@ -1471,7 +1505,9 @@ Value: [Replit IP address]`}</code>
                     <CardContent>
                       <div className="space-y-6">
                         <div>
-                          <h4 className="font-medium mb-3">Environment Variables</h4>
+                          <h4 className="font-medium mb-3">
+                            Environment Variables
+                          </h4>
                           <div className="code-block text-xs">
                             <code>{`# Production environment setup
 NODE_ENV=production
@@ -1483,7 +1519,9 @@ CACHE_TTL=3600`}</code>
                         </div>
 
                         <div>
-                          <h4 className="font-medium mb-3">Build Optimization</h4>
+                          <h4 className="font-medium mb-3">
+                            Build Optimization
+                          </h4>
                           <div className="code-block text-xs">
                             <code>{`// webpack.config.js optimizations
 module.exports = {
@@ -1574,7 +1612,9 @@ const logger = winston.createLogger({
                       <div className="space-y-4">
                         <div className="grid md:grid-cols-4 gap-3">
                           <div className="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                            <h4 className="font-medium text-sm mb-1">Response Time</h4>
+                            <h4 className="font-medium text-sm mb-1">
+                              Response Time
+                            </h4>
                             <p className="text-xs text-muted-foreground">
                               Target: &lt; 200ms
                             </p>
@@ -1586,13 +1626,17 @@ const logger = winston.createLogger({
                             </p>
                           </div>
                           <div className="text-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
-                            <h4 className="font-medium text-sm mb-1">Memory Usage</h4>
+                            <h4 className="font-medium text-sm mb-1">
+                              Memory Usage
+                            </h4>
                             <p className="text-xs text-muted-foreground">
                               Monitor: &lt; 80%
                             </p>
                           </div>
                           <div className="text-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-                            <h4 className="font-medium text-sm mb-1">Error Rate</h4>
+                            <h4 className="font-medium text-sm mb-1">
+                              Error Rate
+                            </h4>
                             <p className="text-xs text-muted-foreground">
                               Target: &lt; 1%
                             </p>
@@ -1609,7 +1653,9 @@ const logger = winston.createLogger({
           {currentSection === "databases" && (
             <div className="space-y-8">
               <div>
-                <h1 className="text-3xl font-bold mb-4">Database Integration</h1>
+                <h1 className="text-3xl font-bold mb-4">
+                  Database Integration
+                </h1>
                 <p className="text-lg text-muted-foreground mb-6">
                   Comprehensive guide to integrating databases in Replit, from
                   simple SQLite to advanced PostgreSQL and MongoDB setups.
@@ -1636,17 +1682,21 @@ const logger = winston.createLogger({
                       <CardContent>
                         <div className="space-y-3">
                           <p className="text-sm text-muted-foreground">
-                            Built-in key-value store, perfect for simple data storage
+                            Built-in key-value store, perfect for simple data
+                            storage
                           </p>
                           <div className="space-y-2">
                             <div className="text-xs">
-                              <strong>Pros:</strong> Zero setup, automatic scaling, simple API
+                              <strong>Pros:</strong> Zero setup, automatic
+                              scaling, simple API
                             </div>
                             <div className="text-xs">
-                              <strong>Cons:</strong> Key-value only, limited querying
+                              <strong>Cons:</strong> Key-value only, limited
+                              querying
                             </div>
                             <div className="text-xs">
-                              <strong>Best for:</strong> User preferences, cache, simple data
+                              <strong>Best for:</strong> User preferences,
+                              cache, simple data
                             </div>
                           </div>
                         </div>
@@ -1667,13 +1717,16 @@ const logger = winston.createLogger({
                           </p>
                           <div className="space-y-2">
                             <div className="text-xs">
-                              <strong>Pros:</strong> Full SQL, ACID compliance, no server needed
+                              <strong>Pros:</strong> Full SQL, ACID compliance,
+                              no server needed
                             </div>
                             <div className="text-xs">
-                              <strong>Cons:</strong> Single-writer, size limitations
+                              <strong>Cons:</strong> Single-writer, size
+                              limitations
                             </div>
                             <div className="text-xs">
-                              <strong>Best for:</strong> Development, prototypes, small apps
+                              <strong>Best for:</strong> Development,
+                              prototypes, small apps
                             </div>
                           </div>
                         </div>
@@ -1694,13 +1747,16 @@ const logger = winston.createLogger({
                           </p>
                           <div className="space-y-2">
                             <div className="text-xs">
-                              <strong>Pros:</strong> Full features, scalability, concurrent access
+                              <strong>Pros:</strong> Full features, scalability,
+                              concurrent access
                             </div>
                             <div className="text-xs">
-                              <strong>Cons:</strong> Additional cost, network latency
+                              <strong>Cons:</strong> Additional cost, network
+                              latency
                             </div>
                             <div className="text-xs">
-                              <strong>Best for:</strong> Production apps, complex queries
+                              <strong>Best for:</strong> Production apps,
+                              complex queries
                             </div>
                           </div>
                         </div>
@@ -1716,7 +1772,9 @@ const logger = winston.createLogger({
                       <div className="space-y-4">
                         <div className="grid md:grid-cols-2 gap-6">
                           <div>
-                            <h4 className="font-medium mb-3">Decision Matrix:</h4>
+                            <h4 className="font-medium mb-3">
+                              Decision Matrix:
+                            </h4>
                             <div className="space-y-2 text-sm">
                               <div className="flex justify-between">
                                 <span>Simple key-value storage:</span>
@@ -1736,12 +1794,16 @@ const logger = winston.createLogger({
                               </div>
                               <div className="flex justify-between">
                                 <span>Real-time applications:</span>
-                                <Badge variant="outline">Redis + Primary DB</Badge>
+                                <Badge variant="outline">
+                                  Redis + Primary DB
+                                </Badge>
                               </div>
                             </div>
                           </div>
                           <div>
-                            <h4 className="font-medium mb-3">Scalability Considerations:</h4>
+                            <h4 className="font-medium mb-3">
+                              Scalability Considerations:
+                            </h4>
                             <ul className="space-y-1 text-sm">
                               <li>• Read/write patterns</li>
                               <li>• Concurrent user count</li>
@@ -1765,7 +1827,9 @@ const logger = winston.createLogger({
                     <CardContent>
                       <div className="space-y-6">
                         <div>
-                          <h4 className="font-medium mb-3">1. Replit Database Setup</h4>
+                          <h4 className="font-medium mb-3">
+                            1. Replit Database Setup
+                          </h4>
                           <div className="code-block">
                             <pre className="text-xs overflow-x-auto">
                               <code>{`// Install client
@@ -1810,7 +1874,9 @@ db.serialize(() => {
                         </div>
 
                         <div>
-                          <h4 className="font-medium mb-3">3. PostgreSQL Setup</h4>
+                          <h4 className="font-medium mb-3">
+                            3. PostgreSQL Setup
+                          </h4>
                           <div className="code-block">
                             <pre className="text-xs overflow-x-auto">
                               <code>{`// Install PostgreSQL client
@@ -1841,7 +1907,9 @@ const pool = new Pool({
                     <CardContent>
                       <div className="space-y-6">
                         <div>
-                          <h4 className="font-medium mb-3">User Management Service</h4>
+                          <h4 className="font-medium mb-3">
+                            User Management Service
+                          </h4>
                           <div className="code-block">
                             <pre className="text-xs overflow-x-auto">
                               <code>{`class UserService {
@@ -1958,7 +2026,9 @@ async function transferMoney(fromId, toId, amount) {
                           </div>
                         </div>
                         <div>
-                          <h4 className="font-medium mb-3">Joins & Aggregation</h4>
+                          <h4 className="font-medium mb-3">
+                            Joins & Aggregation
+                          </h4>
                           <div className="code-block text-xs">
                             <code>{`// User posts with comment count
 async function getUserPostsWithComments(userId) {
@@ -1994,7 +2064,9 @@ async function getUserPostsWithComments(userId) {
                     <CardContent>
                       <div className="space-y-6">
                         <div>
-                          <h4 className="font-medium mb-3">Indexing Strategy</h4>
+                          <h4 className="font-medium mb-3">
+                            Indexing Strategy
+                          </h4>
                           <div className="code-block">
                             <pre className="text-xs overflow-x-auto">
                               <code>{`-- Create indexes for common queries
@@ -2012,7 +2084,9 @@ CREATE INDEX idx_active_users ON users(created_at) WHERE status = 'active';`}</c
                         </div>
 
                         <div>
-                          <h4 className="font-medium mb-3">Connection Pooling</h4>
+                          <h4 className="font-medium mb-3">
+                            Connection Pooling
+                          </h4>
                           <div className="code-block">
                             <pre className="text-xs overflow-x-auto">
                               <code>{`// PostgreSQL connection pool configuration
@@ -2048,7 +2122,9 @@ async function queryDatabase(query, params) {
                     <CardContent>
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <h4 className="font-medium mb-3">In-Memory Caching</h4>
+                          <h4 className="font-medium mb-3">
+                            In-Memory Caching
+                          </h4>
                           <div className="code-block text-xs">
                             <code>{`// Simple LRU cache
 const NodeCache = require('node-cache');
@@ -2071,7 +2147,9 @@ async function getCachedUser(id) {
                           </div>
                         </div>
                         <div>
-                          <h4 className="font-medium mb-3">Query Result Caching</h4>
+                          <h4 className="font-medium mb-3">
+                            Query Result Caching
+                          </h4>
                           <div className="code-block text-xs">
                             <code>{`// Cache expensive aggregations
 async function getPopularPosts() {
@@ -2108,16 +2186,21 @@ async function getPopularPosts() {
                 <h1 className="text-3xl font-bold mb-4">CI/CD Workflows</h1>
                 <p className="text-lg text-muted-foreground mb-6">
                   Implement continuous integration and deployment pipelines to
-                  automate testing, building, and deploying your Replit projects.
+                  automate testing, building, and deploying your Replit
+                  projects.
                 </p>
               </div>
 
               <Tabs defaultValue="overview" className="w-full">
                 <TabsList className="grid w-full grid-cols-4">
                   <TabsTrigger value="overview">CI/CD Overview</TabsTrigger>
-                  <TabsTrigger value="github-actions">GitHub Actions</TabsTrigger>
+                  <TabsTrigger value="github-actions">
+                    GitHub Actions
+                  </TabsTrigger>
                   <TabsTrigger value="testing">Testing Pipeline</TabsTrigger>
-                  <TabsTrigger value="deployment">Deployment Pipeline</TabsTrigger>
+                  <TabsTrigger value="deployment">
+                    Deployment Pipeline
+                  </TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="overview" className="space-y-6">
@@ -2137,19 +2220,27 @@ async function getPopularPosts() {
                           <div className="space-y-2">
                             <div className="flex items-center space-x-2">
                               <CheckCircle className="h-4 w-4 text-green-500" />
-                              <span className="text-sm">Run tests on every commit</span>
+                              <span className="text-sm">
+                                Run tests on every commit
+                              </span>
                             </div>
                             <div className="flex items-center space-x-2">
                               <CheckCircle className="h-4 w-4 text-green-500" />
-                              <span className="text-sm">Code quality checks</span>
+                              <span className="text-sm">
+                                Code quality checks
+                              </span>
                             </div>
                             <div className="flex items-center space-x-2">
                               <CheckCircle className="h-4 w-4 text-green-500" />
-                              <span className="text-sm">Security vulnerability scanning</span>
+                              <span className="text-sm">
+                                Security vulnerability scanning
+                              </span>
                             </div>
                             <div className="flex items-center space-x-2">
                               <CheckCircle className="h-4 w-4 text-green-500" />
-                              <span className="text-sm">Build artifact generation</span>
+                              <span className="text-sm">
+                                Build artifact generation
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -2171,19 +2262,27 @@ async function getPopularPosts() {
                           <div className="space-y-2">
                             <div className="flex items-center space-x-2">
                               <CheckCircle className="h-4 w-4 text-green-500" />
-                              <span className="text-sm">Automatic deployment to staging</span>
+                              <span className="text-sm">
+                                Automatic deployment to staging
+                              </span>
                             </div>
                             <div className="flex items-center space-x-2">
                               <CheckCircle className="h-4 w-4 text-green-500" />
-                              <span className="text-sm">Production deployment approval</span>
+                              <span className="text-sm">
+                                Production deployment approval
+                              </span>
                             </div>
                             <div className="flex items-center space-x-2">
                               <CheckCircle className="h-4 w-4 text-green-500" />
-                              <span className="text-sm">Rollback capabilities</span>
+                              <span className="text-sm">
+                                Rollback capabilities
+                              </span>
                             </div>
                             <div className="flex items-center space-x-2">
                               <CheckCircle className="h-4 w-4 text-green-500" />
-                              <span className="text-sm">Environment-specific configs</span>
+                              <span className="text-sm">
+                                Environment-specific configs
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -2263,7 +2362,9 @@ async function getPopularPosts() {
                               5
                             </div>
                             <div>
-                              <h4 className="font-medium">Production Deployment</h4>
+                              <h4 className="font-medium">
+                                Production Deployment
+                              </h4>
                               <p className="text-xs text-muted-foreground">
                                 Manual approval or automatic deployment
                               </p>
@@ -2283,7 +2384,8 @@ async function getPopularPosts() {
                     <CardContent>
                       <div className="space-y-4">
                         <p className="text-sm text-muted-foreground">
-                          Create a <code>.github/workflows/ci-cd.yml</code> file in your repository:
+                          Create a <code>.github/workflows/ci-cd.yml</code> file
+                          in your repository:
                         </p>
                         <div className="code-block">
                           <pre className="text-xs overflow-x-auto">
@@ -2429,7 +2531,9 @@ deploy-to-replit:
                     <CardContent>
                       <div className="space-y-6">
                         <div>
-                          <h4 className="font-medium mb-3">Package.json Scripts</h4>
+                          <h4 className="font-medium mb-3">
+                            Package.json Scripts
+                          </h4>
                           <div className="code-block">
                             <pre className="text-xs overflow-x-auto">
                               <code>{`{
@@ -2449,7 +2553,9 @@ deploy-to-replit:
                         </div>
 
                         <div>
-                          <h4 className="font-medium mb-3">Jest Configuration</h4>
+                          <h4 className="font-medium mb-3">
+                            Jest Configuration
+                          </h4>
                           <div className="code-block">
                             <pre className="text-xs overflow-x-auto">
                               <code>{`// jest.config.js
@@ -2479,7 +2585,9 @@ module.exports = {
                         </div>
 
                         <div>
-                          <h4 className="font-medium mb-3">ESLint Configuration</h4>
+                          <h4 className="font-medium mb-3">
+                            ESLint Configuration
+                          </h4>
                           <div className="code-block">
                             <pre className="text-xs overflow-x-auto">
                               <code>{`// .eslintrc.js
@@ -2521,7 +2629,9 @@ module.exports = {
                     <CardContent>
                       <div className="space-y-6">
                         <div>
-                          <h4 className="font-medium mb-3">Blue-Green Deployment</h4>
+                          <h4 className="font-medium mb-3">
+                            Blue-Green Deployment
+                          </h4>
                           <div className="code-block">
                             <pre className="text-xs overflow-x-auto">
                               <code>{`# Blue-Green deployment script
@@ -2555,7 +2665,9 @@ echo "Deployment completed successfully!"`}</code>
                         </div>
 
                         <div>
-                          <h4 className="font-medium mb-3">Database Migration Pipeline</h4>
+                          <h4 className="font-medium mb-3">
+                            Database Migration Pipeline
+                          </h4>
                           <div className="code-block">
                             <pre className="text-xs overflow-x-auto">
                               <code>{`// Migration workflow
@@ -2589,7 +2701,9 @@ deploy-with-migrations:
                         </div>
 
                         <div>
-                          <h4 className="font-medium mb-3">Environment-Specific Configuration</h4>
+                          <h4 className="font-medium mb-3">
+                            Environment-Specific Configuration
+                          </h4>
                           <div className="code-block">
                             <pre className="text-xs overflow-x-auto">
                               <code>{`# deployment.yml
@@ -2633,7 +2747,9 @@ deploy_to_environment() {
                     <CardContent>
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <h4 className="font-medium mb-3">Health Check Setup</h4>
+                          <h4 className="font-medium mb-3">
+                            Health Check Setup
+                          </h4>
                           <div className="code-block text-xs">
                             <code>{`// Health check endpoint
 app.get('/health', async (req, res) => {
@@ -2660,7 +2776,9 @@ app.get('/health', async (req, res) => {
                           </div>
                         </div>
                         <div>
-                          <h4 className="font-medium mb-3">Deployment Notifications</h4>
+                          <h4 className="font-medium mb-3">
+                            Deployment Notifications
+                          </h4>
                           <div className="code-block text-xs">
                             <code>{`# Slack notification workflow
 - name: Notify Deployment Success
@@ -2675,7 +2793,7 @@ app.get('/health', async (req, res) => {
   run: |
     curl -X POST -H 'Content-type: application/json' \
     --data '{"text":"❌ Deployment to production failed!"}' \
-    ${{ secrets.SLACK_WEBHOOK_URL }}`}</code>
+    \${{ secrets.SLACK_WEBHOOK_URL }}`}</code>
                           </div>
                         </div>
                       </div>

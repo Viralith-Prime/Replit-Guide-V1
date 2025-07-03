@@ -381,6 +381,94 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
     }));
   }, []);
 
+  // Handle scroll position restoration and saving
+  useEffect(() => {
+    const handleScroll = () => {
+      // Save scroll position for current path
+      const scrollPosition = window.scrollY;
+      setState((prev) => {
+        const newScrollPositions = {
+          ...prev.scrollPositions,
+          [location.pathname]: scrollPosition,
+        };
+        localStorage.setItem(
+          "navigation_scroll_positions",
+          JSON.stringify(newScrollPositions),
+        );
+        return { ...prev, scrollPositions: newScrollPositions };
+      });
+    };
+
+    // Restore scroll position on page load
+    const savedPosition = state.scrollPositions[location.pathname];
+    if (savedPosition && savedPosition > 0) {
+      // Use setTimeout to ensure content is rendered
+      setTimeout(() => {
+        window.scrollTo({ top: savedPosition, behavior: "smooth" });
+      }, 100);
+    }
+
+    // Add scroll listener with throttling
+    let timeoutId: NodeJS.Timeout;
+    const throttledScroll = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(handleScroll, 100);
+    };
+
+    window.addEventListener("scroll", throttledScroll);
+    return () => {
+      window.removeEventListener("scroll", throttledScroll);
+      clearTimeout(timeoutId);
+    };
+  }, [location.pathname, state.scrollPositions]);
+
+  // Handle keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      // Global keyboard shortcuts
+      if ((event.metaKey || event.ctrlKey) && event.key === "k") {
+        event.preventDefault();
+        setState((prev) => ({ ...prev, isSearchOpen: true }));
+        return;
+      }
+
+      if (event.key === "Escape") {
+        setState((prev) => ({
+          ...prev,
+          isSearchOpen: false,
+          isSidebarOpen: false,
+          searchQuery: "",
+          searchResults: [],
+        }));
+        return;
+      }
+
+      // Handle Alt + arrow keys for history navigation
+      if (
+        event.altKey &&
+        (event.key === "ArrowLeft" || event.key === "ArrowRight")
+      ) {
+        event.preventDefault();
+        if (event.key === "ArrowLeft") {
+          window.history.back();
+        } else {
+          window.history.forward();
+        }
+        return;
+      }
+
+      // Handle navigation sidebar toggle
+      if ((event.metaKey || event.ctrlKey) && event.key === "b") {
+        event.preventDefault();
+        setState((prev) => ({ ...prev, isSidebarOpen: !prev.isSidebarOpen }));
+        return;
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   // Generate breadcrumbs based on current path
   const generateBreadcrumbs = (pathname: string): Breadcrumb[] => {
     const breadcrumbs: Breadcrumb[] = [{ label: "Home", href: "/" }];

@@ -337,6 +337,10 @@ const initialState: NavigationState = {
   isSearchOpen: false,
   recentPages: [],
   bookmarkedPages: [],
+  scrollPositions: {},
+  activeSection: "",
+  keyboardFocus: null,
+  lastNavigationTime: Date.now(),
 };
 
 export function NavigationProvider({ children }: { children: ReactNode }) {

@@ -76,7 +76,7 @@ const featuredProjects = [
   {
     title: "3D Solar System",
     author: "AlexCoder",
-    avatar: "/api/placeholder/32/32",
+    avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=AlexCoder`,
     language: "JavaScript",
     views: 12500,
     likes: 234,

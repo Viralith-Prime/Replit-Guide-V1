@@ -179,11 +179,20 @@ export default function AITools() {
   const [customPrompt, setCustomPrompt] = useState("");
   const [selectedExample, setSelectedExample] = useState(0);
   const [copiedPrompt, setCopiedPrompt] = useState("");
+  const [completedExercises, setCompletedExercises] = useState<string[]>([]);
 
   const copyPrompt = (prompt: string) => {
     navigator.clipboard.writeText(prompt);
     setCopiedPrompt(prompt);
     setTimeout(() => setCopiedPrompt(""), 2000);
+  };
+
+  const toggleExercise = (exerciseId: string) => {
+    setCompletedExercises((prev) =>
+      prev.includes(exerciseId)
+        ? prev.filter((id) => id !== exerciseId)
+        : [...prev, exerciseId],
+    );
   };
 
   return (

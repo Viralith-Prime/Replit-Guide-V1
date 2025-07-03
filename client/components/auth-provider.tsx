@@ -755,6 +755,43 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, [state.isAuthenticated, state.session]);
 
+  const syncData = async () => {
+    try {
+      if (!state.user) throw new Error("User not authenticated");
+
+      // Simulate data synchronization
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      // Mock sync process: update user data with latest from server
+      const syncedUser = {
+        ...state.user,
+        lastSyncAt: new Date().toISOString(),
+        // Simulate some updated data
+        progress: {
+          ...state.user.progress,
+          lastUpdated: new Date().toISOString(),
+          syncedDevices: (state.user.progress.syncedDevices || 0) + 1,
+        },
+      };
+
+      // Update local storage and state
+      localStorage.setItem("auth_user", JSON.stringify(syncedUser));
+      dispatch({ type: "UPDATE_USER", payload: syncedUser });
+
+      // Also sync session data
+      if (state.session) {
+        const syncedSession = {
+          ...state.session,
+          lastSync: new Date().toISOString(),
+        };
+        localStorage.setItem("auth_session", JSON.stringify(syncedSession));
+      }
+    } catch (error) {
+      console.error("Sync error:", error);
+      throw error;
+    }
+  };
+
   const contextValue: AuthContextType = {
     ...state,
     login,

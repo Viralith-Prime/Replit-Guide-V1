@@ -43,6 +43,7 @@ import {
   Clock,
   Monitor,
   Lock,
+  MessageSquare,
 } from "lucide-react";
 
 // Mock active sessions data

@@ -43,6 +43,20 @@ import { useState, useEffect } from "react";
 import { useProgress } from "@/components/progress-provider";
 import { useAdaptiveLayout } from "@/components/adaptive-layout-provider";
 
+const pageMetadata = {
+  title: "Advanced Topics",
+  description: "Master advanced Replit features and development techniques",
+  category: "advanced" as const,
+  level: "advanced" as const,
+  timeToComplete: "45-60 minutes",
+  prerequisites: ["Getting Started", "Core Features", "AI Tools"],
+};
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Advanced", href: "/advanced" },
+];
+
 const advancedSections = [
   {
     id: "environment",

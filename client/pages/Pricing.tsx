@@ -36,6 +36,20 @@ import {
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
+const pageMetadata = {
+  title: "Pricing",
+  description: "Choose the perfect plan for your development needs",
+  category: "account" as const,
+  level: "beginner" as const,
+  timeToComplete: "5-10 minutes",
+  prerequisites: [],
+};
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Pricing", href: "/pricing" },
+];
+
 const pricingSections = [
   {
     id: "plans",

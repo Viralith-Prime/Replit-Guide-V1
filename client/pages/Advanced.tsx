@@ -2596,14 +2596,14 @@ deploy-with-migrations:
 environments:
   staging:
     replitUrl: "https://staging.yourapp.replit.app"
-    databaseUrl: ${{ secrets.STAGING_DB_URL }}
-    apiKey: ${{ secrets.STAGING_API_KEY }}
+    databaseUrl: \${{ secrets.STAGING_DB_URL }}
+    apiKey: \${{ secrets.STAGING_API_KEY }}
     logLevel: "debug"
 
   production:
     replitUrl: "https://yourapp.replit.app"
-    databaseUrl: ${{ secrets.PROD_DB_URL }}
-    apiKey: ${{ secrets.PROD_API_KEY }}
+    databaseUrl: \${{ secrets.PROD_DB_URL }}
+    apiKey: \${{ secrets.PROD_API_KEY }}
     logLevel: "warn"
 
 # Deploy script

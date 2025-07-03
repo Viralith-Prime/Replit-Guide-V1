@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { AccessibilityPanel } from "@/components/accessibility-panel";
 
 const features = [
   {
@@ -121,7 +122,10 @@ export default function Index() {
                 Community
               </Link>
             </nav>
-            <ThemeToggle />
+            <div className="flex items-center space-x-2">
+              <AccessibilityPanel />
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </header>

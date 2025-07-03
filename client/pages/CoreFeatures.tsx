@@ -110,13 +110,23 @@ const deploymentTypes = [
   {
     type: "Web Applications",
     description: "Dynamic web apps",
-    features: ["Server-side rendering", "Database connections", "API routes", "Environment variables"],
+    features: [
+      "Server-side rendering",
+      "Database connections",
+      "API routes",
+      "Environment variables",
+    ],
     useCase: "Full-stack applications",
   },
   {
     type: "Always-On",
     description: "24/7 running services",
-    features: ["Background processes", "Scheduled tasks", "Persistent storage", "High availability"],
+    features: [
+      "Background processes",
+      "Scheduled tasks",
+      "Persistent storage",
+      "High availability",
+    ],
     useCase: "Bots, APIs, microservices",
   },
 ];
@@ -137,9 +147,7 @@ export default function CoreFeatures() {
 
   const toggleFeature = (index: number) => {
     setCheckedFeatures((prev) =>
-      prev.includes(index)
-        ? prev.filter((i) => i !== index)
-        : [...prev, index],
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
     );
   };
 
@@ -207,9 +215,20 @@ export default function CoreFeatures() {
               <div className="space-y-3">
                 <div className="flex justify-between text-xs">
                   <span>Completion</span>
-                  <span>{Math.round((checkedFeatures.length / collaborationFeatures.length) * 100)}%</span>
+                  <span>
+                    {Math.round(
+                      (checkedFeatures.length / collaborationFeatures.length) *
+                        100,
+                    )}
+                    %
+                  </span>
                 </div>
-                <Progress value={(checkedFeatures.length / collaborationFeatures.length) * 100} />
+                <Progress
+                  value={
+                    (checkedFeatures.length / collaborationFeatures.length) *
+                    100
+                  }
+                />
                 <p className="text-xs text-muted-foreground">
                   Complete the collaboration exercises to track your progress
                 </p>
@@ -225,8 +244,9 @@ export default function CoreFeatures() {
               <div>
                 <h1 className="text-3xl font-bold mb-4">Language Support</h1>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Replit supports over 50 programming languages with full IDE features,
-                  syntax highlighting, and intelligent code completion.
+                  Replit supports over 50 programming languages with full IDE
+                  features, syntax highlighting, and intelligent code
+                  completion.
                 </p>
               </div>
 
@@ -245,11 +265,17 @@ export default function CoreFeatures() {
                     {popularLanguages.map((lang, index) => (
                       <div key={index} className="space-y-2">
                         <div className="flex justify-between items-center">
-                          <span className="font-medium text-sm">{lang.name}</span>
-                          <span className="text-xs text-muted-foreground">{lang.usage}%</span>
+                          <span className="font-medium text-sm">
+                            {lang.name}
+                          </span>
+                          <span className="text-xs text-muted-foreground">
+                            {lang.usage}%
+                          </span>
                         </div>
                         <Progress value={lang.usage} className="h-2" />
-                        <p className="text-xs text-muted-foreground">{lang.description}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {lang.description}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -262,25 +288,31 @@ export default function CoreFeatures() {
                   <TabsTrigger value="templates">Templates</TabsTrigger>
                   <TabsTrigger value="advanced">Advanced</TabsTrigger>
                 </TabsList>
-                
+
                 <TabsContent value="quick-start" className="space-y-4">
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-lg">Getting Started with Any Language</CardTitle>
+                      <CardTitle className="text-lg">
+                        Getting Started with Any Language
+                      </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                       <ol className="list-decimal list-inside space-y-3 text-sm">
                         <li>Click "Create Repl" from your dashboard</li>
-                        <li>Search for your desired language in the template gallery</li>
+                        <li>
+                          Search for your desired language in the template
+                          gallery
+                        </li>
                         <li>Select the language or framework template</li>
                         <li>Start coding immediately with full IDE support</li>
                       </ol>
-                      
+
                       <div className="bg-muted/50 rounded-lg p-4">
                         <h4 className="font-medium mb-2 text-sm">Pro Tip</h4>
                         <p className="text-sm text-muted-foreground">
-                          Use the search feature in the template gallery to find specific frameworks 
-                          like "React", "Django", or "Express" for pre-configured environments.
+                          Use the search feature in the template gallery to find
+                          specific frameworks like "React", "Django", or
+                          "Express" for pre-configured environments.
                         </p>
                       </div>
                     </CardContent>
@@ -291,7 +323,9 @@ export default function CoreFeatures() {
                   <div className="grid md:grid-cols-2 gap-4">
                     <Card>
                       <CardHeader>
-                        <CardTitle className="text-lg">Web Development</CardTitle>
+                        <CardTitle className="text-lg">
+                          Web Development
+                        </CardTitle>
                       </CardHeader>
                       <CardContent>
                         <ul className="space-y-2 text-sm">
@@ -303,10 +337,12 @@ export default function CoreFeatures() {
                         </ul>
                       </CardContent>
                     </Card>
-                    
+
                     <Card>
                       <CardHeader>
-                        <CardTitle className="text-lg">Data Science & AI</CardTitle>
+                        <CardTitle className="text-lg">
+                          Data Science & AI
+                        </CardTitle>
                       </CardHeader>
                       <CardContent>
                         <ul className="space-y-2 text-sm">
@@ -324,7 +360,9 @@ export default function CoreFeatures() {
                 <TabsContent value="advanced" className="space-y-4">
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-lg">Advanced Language Features</CardTitle>
+                      <CardTitle className="text-lg">
+                        Advanced Language Features
+                      </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                       <div className="grid md:grid-cols-2 gap-4">
@@ -359,10 +397,15 @@ export default function CoreFeatures() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm mb-4">
-                    Create a project that uses multiple languages working together.
+                    Create a project that uses multiple languages working
+                    together.
                   </p>
                   <Button size="sm" asChild>
-                    <a href="https://replit.com/new" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://replit.com/new"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Start Challenge
                       <ExternalLink className="h-3 w-3 ml-2" />
                     </a>
@@ -375,10 +418,12 @@ export default function CoreFeatures() {
           {currentSection === "collaboration" && (
             <div className="space-y-8">
               <div>
-                <h1 className="text-3xl font-bold mb-4">Real-time Collaboration</h1>
+                <h1 className="text-3xl font-bold mb-4">
+                  Real-time Collaboration
+                </h1>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Code together with your team in real-time, share projects instantly, 
-                  and collaborate like never before.
+                  Code together with your team in real-time, share projects
+                  instantly, and collaborate like never before.
                 </p>
               </div>
 
@@ -419,7 +464,9 @@ export default function CoreFeatures() {
                   <CardContent>
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-medium text-sm mb-2">Public Sharing</h4>
+                        <h4 className="font-medium text-sm mb-2">
+                          Public Sharing
+                        </h4>
                         <p className="text-xs text-muted-foreground mb-2">
                           Anyone with the link can view and fork your repl
                         </p>
@@ -427,16 +474,20 @@ export default function CoreFeatures() {
                           https://replit.com/@username/project-name
                         </div>
                       </div>
-                      
+
                       <div>
-                        <h4 className="font-medium text-sm mb-2">Private Collaboration</h4>
+                        <h4 className="font-medium text-sm mb-2">
+                          Private Collaboration
+                        </h4>
                         <p className="text-xs text-muted-foreground">
                           Invite specific users to edit your private repl
                         </p>
                       </div>
 
                       <div>
-                        <h4 className="font-medium text-sm mb-2">Embed Options</h4>
+                        <h4 className="font-medium text-sm mb-2">
+                          Embed Options
+                        </h4>
                         <p className="text-xs text-muted-foreground">
                           Embed your repl in websites, blogs, or documentation
                         </p>
@@ -468,10 +519,14 @@ export default function CoreFeatures() {
                       <span>Charlie is in voice chat</span>
                     </div>
                   </div>
-                  
+
                   <div className="mt-4">
                     <Button size="sm" asChild>
-                      <a href="https://replit.com/new/python" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href="https://replit.com/new/python"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         Try Collaborative Editing
                         <ExternalLink className="h-3 w-3 ml-2" />
                       </a>
@@ -484,12 +539,21 @@ export default function CoreFeatures() {
                 <div className="flex items-start space-x-3">
                   <Lightbulb className="h-5 w-5 text-blue-500 mt-0.5" />
                   <div>
-                    <h4 className="font-medium text-sm mb-2">Best Practices for Team Collaboration</h4>
+                    <h4 className="font-medium text-sm mb-2">
+                      Best Practices for Team Collaboration
+                    </h4>
                     <ul className="text-sm space-y-1 text-muted-foreground">
-                      <li>• Use clear commit messages when working with version control</li>
+                      <li>
+                        • Use clear commit messages when working with version
+                        control
+                      </li>
                       <li>• Establish coding standards and formatting rules</li>
-                      <li>• Use comments to communicate context and decisions</li>
-                      <li>• Take advantage of voice chat for complex discussions</li>
+                      <li>
+                        • Use comments to communicate context and decisions
+                      </li>
+                      <li>
+                        • Take advantage of voice chat for complex discussions
+                      </li>
                       <li>• Set up proper permissions for team members</li>
                     </ul>
                   </div>
@@ -503,8 +567,9 @@ export default function CoreFeatures() {
               <div>
                 <h1 className="text-3xl font-bold mb-4">Deployments</h1>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Deploy your applications instantly with Replit's hosting platform. 
-                  From static sites to full-stack apps and always-on services.
+                  Deploy your applications instantly with Replit's hosting
+                  platform. From static sites to full-stack apps and always-on
+                  services.
                 </p>
               </div>
 
@@ -519,15 +584,22 @@ export default function CoreFeatures() {
                         </CardTitle>
                         <Badge variant="outline">{deployment.useCase}</Badge>
                       </div>
-                      <CardDescription>{deployment.description}</CardDescription>
+                      <CardDescription>
+                        {deployment.description}
+                      </CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
-                          <h4 className="font-medium text-sm mb-2">Key Features</h4>
+                          <h4 className="font-medium text-sm mb-2">
+                            Key Features
+                          </h4>
                           <ul className="space-y-1">
                             {deployment.features.map((feature, fIndex) => (
-                              <li key={fIndex} className="text-sm flex items-center space-x-2">
+                              <li
+                                key={fIndex}
+                                className="text-sm flex items-center space-x-2"
+                              >
                                 <CheckCircle className="h-3 w-3 text-primary" />
                                 <span>{feature}</span>
                               </li>
@@ -536,9 +608,15 @@ export default function CoreFeatures() {
                         </div>
                         <div>
                           <h4 className="font-medium text-sm mb-2">Best For</h4>
-                          <p className="text-sm text-muted-foreground">{deployment.useCase}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {deployment.useCase}
+                          </p>
                           <Button size="sm" className="mt-3" asChild>
-                            <a href="https://replit.com/new" target="_blank" rel="noopener noreferrer">
+                            <a
+                              href="https://replit.com/new"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
                               Deploy Now
                               <ExternalLink className="h-3 w-3 ml-2" />
                             </a>
@@ -552,17 +630,23 @@ export default function CoreFeatures() {
 
               <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20">
                 <CardHeader>
-                  <CardTitle className="text-lg">Deployment Quick Start</CardTitle>
+                  <CardTitle className="text-lg">
+                    Deployment Quick Start
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <div className="code-block">
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium">Deploy a React App</span>
+                        <span className="text-sm font-medium">
+                          Deploy a React App
+                        </span>
                         <Button
                           size="sm"
                           variant="ghost"
-                          onClick={() => copyCode("npm run build && replit deploy")}
+                          onClick={() =>
+                            copyCode("npm run build && replit deploy")
+                          }
                         >
                           <Copy className="h-3 w-3" />
                         </Button>
@@ -573,9 +657,11 @@ export default function CoreFeatures() {
                         <span className="text-blue-400">replit</span> deploy
                       </div>
                     </div>
-                    
+
                     {copiedCode && (
-                      <div className="text-xs text-green-500">✓ Copied to clipboard!</div>
+                      <div className="text-xs text-green-500">
+                        ✓ Copied to clipboard!
+                      </div>
                     )}
                   </div>
                 </CardContent>
@@ -589,8 +675,8 @@ export default function CoreFeatures() {
               <div>
                 <h1 className="text-3xl font-bold mb-4">Code Intelligence</h1>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Experience powerful autocomplete, error detection, and smart code suggestions 
-                  powered by language servers and AI.
+                  Experience powerful autocomplete, error detection, and smart
+                  code suggestions powered by language servers and AI.
                 </p>
               </div>
 
@@ -607,29 +693,45 @@ export default function CoreFeatures() {
                       <li className="flex items-start space-x-3">
                         <CheckCircle className="h-4 w-4 text-primary mt-0.5" />
                         <div>
-                          <div className="font-medium text-sm">Intelligent Autocomplete</div>
-                          <div className="text-xs text-muted-foreground">Context-aware suggestions</div>
+                          <div className="font-medium text-sm">
+                            Intelligent Autocomplete
+                          </div>
+                          <div className="text-xs text-muted-foreground">
+                            Context-aware suggestions
+                          </div>
                         </div>
                       </li>
                       <li className="flex items-start space-x-3">
                         <CheckCircle className="h-4 w-4 text-primary mt-0.5" />
                         <div>
-                          <div className="font-medium text-sm">Real-time Error Detection</div>
-                          <div className="text-xs text-muted-foreground">Catch bugs as you type</div>
+                          <div className="font-medium text-sm">
+                            Real-time Error Detection
+                          </div>
+                          <div className="text-xs text-muted-foreground">
+                            Catch bugs as you type
+                          </div>
                         </div>
                       </li>
                       <li className="flex items-start space-x-3">
                         <CheckCircle className="h-4 w-4 text-primary mt-0.5" />
                         <div>
-                          <div className="font-medium text-sm">Code Formatting</div>
-                          <div className="text-xs text-muted-foreground">Automatic style consistency</div>
+                          <div className="font-medium text-sm">
+                            Code Formatting
+                          </div>
+                          <div className="text-xs text-muted-foreground">
+                            Automatic style consistency
+                          </div>
                         </div>
                       </li>
                       <li className="flex items-start space-x-3">
                         <CheckCircle className="h-4 w-4 text-primary mt-0.5" />
                         <div>
-                          <div className="font-medium text-sm">Refactoring Tools</div>
-                          <div className="text-xs text-muted-foreground">Safe code transformation</div>
+                          <div className="font-medium text-sm">
+                            Refactoring Tools
+                          </div>
+                          <div className="text-xs text-muted-foreground">
+                            Safe code transformation
+                          </div>
                         </div>
                       </li>
                     </ul>
@@ -647,7 +749,10 @@ export default function CoreFeatures() {
                         <span className="text-yellow-400">calculateTotal</span>
                         <span className="text-white">(</span>
                         <span className="text-orange-400">items</span>
-                        <span className="text-white">) {</span>
+                        <span className="text-white">
+                          ) {"{"}
+                          {"{"}
+                        </span>
                         <br />
                         {"  "}
                         <span className="text-blue-400">return</span>{" "}
@@ -663,12 +768,14 @@ export default function CoreFeatures() {
                         <span className="text-white"> + </span>
                         <span className="text-orange-400">item</span>
                         <span className="text-white">.</span>
-                        <span className="bg-primary/20 text-primary px-1 rounded">price</span>
+                        <span className="bg-primary/20 text-primary px-1 rounded">
+                          price
+                        </span>
                         <span className="text-white">, </span>
                         <span className="text-green-400">0</span>
                         <span className="text-white">);</span>
                         <br />
-                        <span className="text-white">}</span>
+                        <span className="text-white">{"}"}</span>
                       </div>
                     </div>
                     <p className="text-xs text-muted-foreground mt-2">

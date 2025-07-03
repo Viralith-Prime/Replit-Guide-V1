@@ -1,0 +1,340 @@
+/* Adaptive Layout Styles */
+
+/* Device-specific optimizations */
+.mobile-optimized {
+  /* Larger touch targets for mobile */
+}
+
+.mobile-optimized button,
+.mobile-optimized input,
+.mobile-optimized select {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.mobile-optimized .text-xs {
+  font-size: 0.875rem; /* Increase small text on mobile */
+}
+
+.mobile-optimized .gap-1 {
+  gap: 0.375rem; /* Slightly larger gaps on mobile */
+}
+
+.mobile-optimized .p-2 {
+  padding: 0.625rem; /* More padding on mobile */
+}
+
+/* Touch-specific optimizations */
+.touch-optimized {
+  /* Remove hover effects on touch devices */
+}
+
+.touch-optimized .hover\:bg-accent:hover {
+  background-color: initial;
+}
+
+.touch-optimized .hover\:text-accent-foreground:hover {
+  color: initial;
+}
+
+.touch-optimized .group:hover .group-hover\:translate-x-1 {
+  transform: initial;
+}
+
+/* Focus styles for touch devices */
+.touch-optimized button:focus,
+.touch-optimized input:focus,
+.touch-optimized select:focus {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* No hover capability adjustments */
+.no-hover .hover\:shadow-lg:hover {
+  box-shadow: initial;
+}
+
+.no-hover .hover\:-translate-y-1:hover {
+  transform: initial;
+}
+
+.no-hover .transition-all {
+  transition: none;
+}
+
+/* Reduced motion preferences */
+.reduced-motion *,
+.reduced-motion *::before,
+.reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+.reduced-motion .animate-spin {
+  animation: none;
+}
+
+.reduced-motion .animate-pulse {
+  animation: none;
+}
+
+/* High contrast mode */
+.high-contrast {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --primary: 0 0% 0%;
+  --primary-foreground: 0 0% 100%;
+  --border: 0 0% 20%;
+  --muted: 0 0% 90%;
+  --muted-foreground: 0 0% 10%;
+}
+
+.high-contrast.dark {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --primary: 0 0% 100%;
+  --primary-foreground: 0 0% 0%;
+  --border: 0 0% 80%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 90%;
+}
+
+/* Browser-specific fixes */
+
+/* Safari fixes */
+.safari-fix {
+  /* Fix for Safari's button styling */
+}
+
+.safari-fix button {
+  -webkit-appearance: none;
+}
+
+.safari-fix input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.safari-fix .backdrop-blur {
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Firefox fixes */
+.firefox-fix {
+  /* Firefox-specific adjustments */
+}
+
+.firefox-fix input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.firefox-fix input[type="number"]::-webkit-outer-spin-button,
+.firefox-fix input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.firefox-fix .scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+
+/* Edge fixes */
+.edge-fix {
+  /* Edge-specific adjustments */
+}
+
+.edge-fix input::-ms-clear,
+.edge-fix input::-ms-reveal {
+  display: none;
+}
+
+/* Screen size specific optimizations */
+[data-screen-size="xs"] .container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+[data-screen-size="xs"] .text-sm {
+  font-size: 0.875rem;
+}
+
+[data-screen-size="xs"] .p-8 {
+  padding: 1rem;
+}
+
+[data-screen-size="xs"] .gap-6 {
+  gap: 1rem;
+}
+
+/* Device type specific layouts */
+[data-device-type="mobile"] .grid-cols-4 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+[data-device-type="mobile"] .md\:grid-cols-2 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+[data-device-type="mobile"] .sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: left 0.3s ease-in-out;
+  z-index: 50;
+}
+
+[data-device-type="mobile"] .sidebar.open {
+  left: 0;
+}
+
+[data-device-type="tablet"] .lg\:grid-cols-3 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* OS-specific optimizations */
+[data-os="ios"] {
+  /* iOS safe area adjustments */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+[data-os="ios"] input {
+  /* Prevent iOS zoom on input focus */
+  font-size: 16px;
+}
+
+[data-os="android"] {
+  /* Android-specific optimizations */
+}
+
+[data-os="android"] .fixed {
+  /* Fix for Android viewport issues */
+  position: absolute;
+}
+
+/* Adaptive navigation styles */
+.adaptive-navigation-mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: hsl(var(--background));
+  border-top: 1px solid hsl(var(--border));
+  padding: 0.5rem;
+  z-index: 50;
+}
+
+.adaptive-navigation-mobile .nav-item {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.adaptive-navigation-desktop {
+  position: sticky;
+  top: 4rem;
+  width: 20rem;
+  height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+/* Adaptive modal styles */
+.adaptive-modal-mobile {
+  position: fixed;
+  inset: 0;
+  background: hsl(var(--background));
+  border-radius: 1rem 1rem 0 0;
+  top: 10vh;
+}
+
+.adaptive-modal-desktop {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 32rem;
+  border-radius: 0.5rem;
+}
+
+/* Performance optimizations for slower connections */
+[data-connection="slow-2g"] img,
+[data-connection="2g"] img {
+  /* Lower quality images for slow connections */
+  image-rendering: -webkit-optimize-contrast;
+}
+
+[data-connection="slow-2g"] .animate-pulse,
+[data-connection="2g"] .animate-pulse {
+  /* Disable animations on slow connections */
+  animation: none;
+}
+
+/* Utility classes for adaptive layouts */
+.adaptive-container {
+  max-width: var(--adaptive-max-width, 100%);
+  margin: 0 auto;
+  padding: 0 var(--adaptive-spacing, 1rem);
+}
+
+.adaptive-grid {
+  display: grid;
+  gap: var(--adaptive-spacing, 1rem);
+  grid-template-columns: repeat(var(--adaptive-columns, 1), minmax(0, 1fr));
+}
+
+.adaptive-touch-target {
+  min-height: var(--adaptive-touch-target, 44px);
+  min-width: var(--adaptive-touch-target, 44px);
+}
+
+.adaptive-text {
+  font-size: var(--adaptive-font-size, 1rem);
+  line-height: var(--adaptive-line-height, 1.5);
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  .adaptive-layout {
+    --adaptive-h1: 2rem;
+    --adaptive-h2: 1.5rem;
+    --adaptive-h3: 1.25rem;
+    --adaptive-body: 0.875rem;
+    --adaptive-small: 0.75rem;
+  }
+}
+
+@media (min-width: 641px) {
+  .adaptive-layout {
+    --adaptive-h1: 3rem;
+    --adaptive-h2: 2rem;
+    --adaptive-h3: 1.5rem;
+    --adaptive-body: 1rem;
+    --adaptive-small: 0.875rem;
+  }
+}
+
+/* Adaptive animations */
+.adaptive-animation {
+  transition-duration: var(--adaptive-animation-duration, 300ms);
+  transition-timing-function: ease-in-out;
+}
+
+/* Print styles */
+@media print {
+  .adaptive-layout {
+    --background: 255 255 255;
+    --foreground: 0 0 0;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-break-before {
+    page-break-before: always;
+  }
+}

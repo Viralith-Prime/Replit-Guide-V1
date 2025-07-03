@@ -2668,7 +2668,7 @@ app.get('/health', async (req, res) => {
   run: |
     curl -X POST -H 'Content-type: application/json' \
     --data '{"text":"✅ Deployment to production successful!"}' \
-    ${{ secrets.SLACK_WEBHOOK_URL }}
+    \${{ secrets.SLACK_WEBHOOK_URL }}
 
 - name: Notify Deployment Failure
   if: failure()

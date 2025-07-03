@@ -176,6 +176,20 @@ const limitations = [
   },
 ];
 
+const pageMetadata = {
+  title: "AI Tools",
+  description: "Learn to leverage AI tools and features for enhanced coding",
+  category: "learning" as const,
+  level: "intermediate" as const,
+  timeToComplete: "20-30 minutes",
+  prerequisites: ["Getting Started", "Core Features"],
+};
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "AI Tools", href: "/ai-tools" },
+];
+
 export default function AITools() {
   const [currentSection, setCurrentSection] = useState("introduction");
   const [customPrompt, setCustomPrompt] = useState("");
@@ -198,25 +212,13 @@ export default function AITools() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" asChild>
-              <Link to="/">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Guide
-              </Link>
-            </Button>
-            <Separator orientation="vertical" className="h-6" />
-            <div className="flex items-center space-x-2">
-              <Bot className="h-5 w-5 text-primary" />
-              <span className="font-semibold">AI Tools</span>
-            </div>
-          </div>
-          <Badge variant="secondary">Section 3 of 6</Badge>
-        </div>
+    <PageLayout
+      title="AI Tools"
+      description="Learn to leverage AI tools and features for enhanced coding"
+      breadcrumbItems={breadcrumbItems}
+      metadata={pageMetadata}
+    >
+      <div className="flex">
       </header>
 
       <div className="flex">

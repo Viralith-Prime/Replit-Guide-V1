@@ -542,6 +542,61 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
     });
   };
 
+  // Advanced navigation methods
+  const saveScrollPosition = (path: string, position: number) => {
+    setState((prev) => {
+      const newScrollPositions = { ...prev.scrollPositions, [path]: position };
+      localStorage.setItem(
+        "navigation_scroll_positions",
+        JSON.stringify(newScrollPositions),
+      );
+      return { ...prev, scrollPositions: newScrollPositions };
+    });
+  };
+
+  const restoreScrollPosition = (path: string): number => {
+    return state.scrollPositions[path] || 0;
+  };
+
+  const setActiveSection = (section: string) => {
+    setState((prev) => ({ ...prev, activeSection: section }));
+  };
+
+  const setKeyboardFocus = (elementId: string | null) => {
+    setState((prev) => ({ ...prev, keyboardFocus: elementId }));
+  };
+
+  const handleKeyboardNavigation = (event: KeyboardEvent) => {
+    // Handle arrow keys for navigation
+    if (event.altKey && event.key === "ArrowUp") {
+      event.preventDefault();
+      // Navigate to previous page in recent history
+      const currentIndex = state.recentPages.findIndex(
+        (page) => page.href === state.currentPath,
+      );
+      if (currentIndex > 0) {
+        navigateToPage(state.recentPages[currentIndex - 1]);
+      }
+    } else if (event.altKey && event.key === "ArrowDown") {
+      event.preventDefault();
+      // Navigate to next page in recent history
+      const currentIndex = state.recentPages.findIndex(
+        (page) => page.href === state.currentPath,
+      );
+      if (currentIndex < state.recentPages.length - 1) {
+        navigateToPage(state.recentPages[currentIndex + 1]);
+      }
+    }
+  };
+
+  const preloadPage = (path: string) => {
+    // Preload a page for faster navigation
+    const link = document.createElement("link");
+    link.rel = "prefetch";
+    link.href = path;
+    document.head.appendChild(link);
+  };
+
   const contextValue: NavigationContextType = {
     ...state,
     toggleSidebar,

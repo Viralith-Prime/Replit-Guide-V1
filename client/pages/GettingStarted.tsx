@@ -1,3 +1,4 @@
+import { PageLayout } from "@/components/page-layout";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -29,6 +30,20 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useProgress } from "@/components/progress-provider";
 import { AchievementBadges } from "@/components/achievements";
+
+const pageMetadata = {
+  title: "Getting Started",
+  description: "Learn the basics of Replit and create your first project",
+  category: "learning" as const,
+  level: "beginner" as const,
+  timeToComplete: "30-45 minutes",
+  prerequisites: [],
+};
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Getting Started", href: "/getting-started" },
+];
 
 const sections = [
   {
@@ -106,27 +121,12 @@ export default function GettingStarted() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" asChild>
-              <Link to="/">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Guide
-              </Link>
-            </Button>
-            <Separator orientation="vertical" className="h-6" />
-            <div className="flex items-center space-x-2">
-              <BookOpen className="h-5 w-5 text-primary" />
-              <span className="font-semibold">Getting Started</span>
-            </div>
-          </div>
-          <Badge variant="secondary">Section 1 of 6</Badge>
-        </div>
-      </header>
-
+    <PageLayout
+      title="Getting Started"
+      description="Learn the basics of Replit and create your first project"
+      breadcrumbItems={breadcrumbItems}
+      metadata={pageMetadata}
+    >
       <div className="flex">
         {/* Sidebar Navigation */}
         <aside className="w-80 border-r border-border p-6 bg-muted/20 min-h-screen sticky top-16">
@@ -842,6 +842,6 @@ export default function GettingStarted() {
           )}
         </main>
       </div>
-    </div>
+    </PageLayout>
   );
 }

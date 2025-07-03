@@ -2036,29 +2036,8 @@ console.log(counters[0]()); // Expected: 0, Got: 3`}</code>
         </main>
       </div>
     </div>
-          )}
-
-          {/* Navigation */}
-          <div className="flex justify-between pt-12">
-            <Button variant="outline" asChild>
-              <Link to="/core-features">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Previous: Core Features
-              </Link>
-            </Button>
-            <Button asChild>
-              <Link to="/community">
-                Next: Community Features
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </Link>
-            </Button>
-          </div>
-        </main>
-      </div>
-    </div>
   );
 }
-                              💡 Prevention Tips:
                             </h4>
                             <ul className="text-sm space-y-1">
                               <li>

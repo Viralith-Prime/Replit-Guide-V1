@@ -2038,14 +2038,6 @@ console.log(counters[0]()); // Expected: 0, Got: 3`}</code>
     </div>
   );
 }
-}
-
-console.log(calculateDiscountPrice(100, 20)); // 80
-console.log(calculateDiscountPriceDecimal(100, 0.20)); // 80
-
-// Test cases
-console.log(calculateDiscountPrice(50, 10));  // 45
-console.log(calculateDiscountPrice(200, 25)); // 150`}</code>
                               </pre>
                             </div>
                           </div>

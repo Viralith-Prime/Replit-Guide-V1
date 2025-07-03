@@ -250,13 +250,13 @@ export default function Pricing() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" asChild>
-              <Link to="/">
+    <PageLayout
+      title="Pricing"
+      description="Choose the perfect plan for your development needs"
+      breadcrumbItems={breadcrumbItems}
+      metadata={pageMetadata}
+    >
+      <div className="flex">
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Guide
               </Link>

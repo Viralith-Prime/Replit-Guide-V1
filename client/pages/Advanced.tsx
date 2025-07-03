@@ -252,27 +252,12 @@ export default function Advanced() {
   };
 
   return (
-    <div className={getAdaptiveStyles("min-h-screen bg-background")}>
-      {/* Header */}
-      <header className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" asChild>
-              <Link to="/">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Guide
-              </Link>
-            </Button>
-            <Separator orientation="vertical" className="h-6" />
-            <div className="flex items-center space-x-2">
-              <Settings className="h-5 w-5 text-primary" />
-              <span className="font-semibold">Advanced Usage</span>
-            </div>
-          </div>
-          <Badge variant="secondary">Section 6 of 6</Badge>
-        </div>
-      </header>
-
+    <PageLayout
+      title="Advanced Topics"
+      description="Master advanced Replit features and development techniques"
+      breadcrumbItems={breadcrumbItems}
+      metadata={pageMetadata}
+    >
       <div className="flex">
         {/* Sidebar Navigation */}
         <aside className="w-80 border-r border-border p-6 bg-muted/20 min-h-screen sticky top-16">

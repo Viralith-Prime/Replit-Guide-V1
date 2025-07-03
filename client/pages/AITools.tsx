@@ -2038,45 +2038,6 @@ console.log(counters[0]()); // Expected: 0, Got: 3`}</code>
     </div>
   );
 }
-                            </h4>
-                            <ul className="text-sm space-y-1">
-                              <li>
-                                • Always validate data structure before
-                                processing
-                              </li>
-                              <li>
-                                • Use optional chaining:
-                                user.name?.toUpperCase()
-                              </li>
-                              <li>
-                                • Add TypeScript for compile-time type checking
-                              </li>
-                              <li>• Include unit tests with edge cases</li>
-                            </ul>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    <Card>
-                      <CardHeader>
-                        <CardTitle>Example 2: Logic Error</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="space-y-4">
-                          <div>
-                            <h4 className="font-medium text-sm mb-2 text-red-600">
-                              ❌ Buggy Code:
-                            </h4>
-                            <div className="code-block">
-                              <pre className="text-xs overflow-x-auto">
-                                <code>{`function calculateDiscountPrice(price, discountPercent) {
-  const discount = price * discountPercent; // Bug: Should divide by 100
-  return price - discount;
-}
-
-console.log(calculateDiscountPrice(100, 20)); // Expected: 80, Actual: -1900`}</code>
-                              </pre>
                             </div>
                           </div>
 

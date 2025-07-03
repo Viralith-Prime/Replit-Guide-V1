@@ -2038,45 +2038,6 @@ console.log(counters[0]()); // Expected: 0, Got: 3`}</code>
     </div>
   );
 }
-                            </div>
-                          </div>
-
-                          <div>
-                            <h4 className="font-medium text-sm mb-2">
-                              🤖 AI Analysis:
-                            </h4>
-                            <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded text-sm">
-                              The function treats the discount percentage as a
-                              decimal multiplier instead of a percentage. When
-                              discountPercent is 20 (meaning 20%), it should be
-                              converted to 0.20 by dividing by 100.
-                            </div>
-                          </div>
-
-                          <div>
-                            <h4 className="font-medium text-sm mb-2 text-green-600">
-                              ✅ Fixed Code:
-                            </h4>
-                            <div className="code-block">
-                              <pre className="text-xs overflow-x-auto">
-                                <code>{`function calculateDiscountPrice(price, discountPercent) {
-  // Input validation
-  if (price < 0 || discountPercent < 0 || discountPercent > 100) {
-    throw new Error('Invalid input: price must be non-negative and discount must be 0-100');
-  }
-
-  const discount = price * (discountPercent / 100); // Convert percentage to decimal
-  return price - discount;
-}
-
-// Alternative with more explicit naming:
-function calculateDiscountPriceDecimal(price, discountDecimal) {
-  if (price < 0 || discountDecimal < 0 || discountDecimal > 1) {
-    throw new Error('Invalid input: price must be non-negative and discount must be 0-1');
-  }
-
-  const discount = price * discountDecimal;
-  return price - discount;
 }
 
 console.log(calculateDiscountPrice(100, 20)); // 80

@@ -807,6 +807,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     updateProfile,
     refreshSession,
     checkSecurity,
+    syncData,
     openAuthModal,
     closeAuthModal,
   };

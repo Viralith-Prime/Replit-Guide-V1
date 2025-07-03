@@ -129,7 +129,15 @@ export function UnifiedHeader() {
           <Button
             variant="outline"
             onClick={openSearch}
-            className="w-full justify-start text-muted-foreground hover:text-foreground"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openSearch();
+              }
+            }}
+            className="w-full justify-start text-muted-foreground hover:text-foreground focus:ring-2 focus:ring-primary/50 transition-all"
+            aria-label="Open search (Ctrl+K)"
+            tabIndex={0}
           >
             <Search className="h-4 w-4 mr-2" />
             <span className="hidden sm:inline">Search guide...</span>

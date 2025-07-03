@@ -367,11 +367,17 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const savedBookmarks = localStorage.getItem("navigation_bookmarks");
     const savedRecent = localStorage.getItem("navigation_recent");
+    const savedScrollPositions = localStorage.getItem(
+      "navigation_scroll_positions",
+    );
 
     setState((prev) => ({
       ...prev,
       bookmarkedPages: savedBookmarks ? JSON.parse(savedBookmarks) : [],
       recentPages: savedRecent ? JSON.parse(savedRecent) : [],
+      scrollPositions: savedScrollPositions
+        ? JSON.parse(savedScrollPositions)
+        : {},
     }));
   }, []);
 

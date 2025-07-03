@@ -2027,16 +2027,6 @@ console.log(counters[0]()); // Expected: 0, Got: 3`}</code>
     </div>
   );
 }
-  { name: "Alice" }
-];
-
-console.log(getUserNames(userList)); // ["JOHN", "JANE", "ALICE"]
-console.log(getUserNamesWithDefaults(userList)); // ["JOHN", "JANE", "ANONYMOUS", "ALICE"]`}</code>
-                              </pre>
-                            </div>
-                          </div>
-
-                          <div>
                             <h4 className="font-medium text-sm mb-2">
                               💡 Prevention Tips:
                             </h4>

@@ -2601,6 +2601,6 @@ console.log('Top 5 Scores:', topScores);`}</code>
           </div>
         </main>
       </div>
-    </div>
+    </PageLayout>
   );
 }

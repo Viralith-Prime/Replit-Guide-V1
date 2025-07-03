@@ -1361,6 +1361,6 @@ export default function Community() {
           </div>
         </main>
       </div>
-    </div>
+    </PageLayout>
   );
 }

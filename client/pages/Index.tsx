@@ -26,6 +26,9 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { AccessibilityPanel } from "@/components/accessibility-panel";
 import { SEO } from "@/components/seo";
 import { SkipLinks } from "@/components/skip-links";
+import { AuthTrigger } from "@/components/auth-trigger";
+import { DashboardWidget } from "@/components/user-dashboard";
+import { useAuth } from "@/components/auth-provider";
 
 const features = [
   {
@@ -86,6 +89,8 @@ const quickStats = [
 ];
 
 export default function Index() {
+  const { isAuthenticated } = useAuth();
+
   return (
     <div className="min-h-screen bg-background">
       <SEO

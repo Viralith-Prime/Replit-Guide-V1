@@ -197,26 +197,38 @@ function UserMenu() {
         <DropdownMenuSeparator />
 
         <DropdownMenuGroup>
-          <DropdownMenuItem className="cursor-pointer">
+          <DropdownMenuItem
+            className="cursor-pointer"
+            onClick={handleProfileClick}
+          >
             <User className="mr-2 h-4 w-4" />
             <span>Profile</span>
             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
-          <DropdownMenuItem className="cursor-pointer">
+          <DropdownMenuItem
+            className="cursor-pointer"
+            onClick={() => (window.location.href = "/profile?tab=bookmarks")}
+          >
             <BookMarked className="mr-2 h-4 w-4" />
             <span>Bookmarks</span>
             <Badge variant="secondary" className="ml-auto text-xs">
               {user.progress.bookmarks.length}
             </Badge>
           </DropdownMenuItem>
-          <DropdownMenuItem className="cursor-pointer">
+          <DropdownMenuItem
+            className="cursor-pointer"
+            onClick={() => (window.location.href = "/profile?tab=achievements")}
+          >
             <Trophy className="mr-2 h-4 w-4" />
             <span>Achievements</span>
             <Badge variant="secondary" className="ml-auto text-xs">
               {user.progress.achievements.length}
             </Badge>
           </DropdownMenuItem>
-          <DropdownMenuItem className="cursor-pointer">
+          <DropdownMenuItem
+            className="cursor-pointer"
+            onClick={handleDashboardClick}
+          >
             <BarChart className="mr-2 h-4 w-4" />
             <span>Progress</span>
             <Badge variant="outline" className="ml-auto text-xs">
@@ -228,22 +240,35 @@ function UserMenu() {
         <DropdownMenuSeparator />
 
         <DropdownMenuGroup>
-          <DropdownMenuItem className="cursor-pointer">
+          <DropdownMenuItem
+            className="cursor-pointer"
+            onClick={handleSettingsClick}
+          >
             <Settings className="mr-2 h-4 w-4" />
             <span>Settings</span>
             <DropdownMenuShortcut>⌘,</DropdownMenuShortcut>
           </DropdownMenuItem>
-          <DropdownMenuItem className="cursor-pointer">
-            <RefreshCw className="mr-2 h-4 w-4" />
-            <span>Sync Data</span>
+          <DropdownMenuItem
+            className="cursor-pointer"
+            onClick={handleSyncData}
+            disabled={isLoading.sync}
+          >
+            <RefreshCw
+              className={`mr-2 h-4 w-4 ${isLoading.sync ? "animate-spin" : ""}`}
+            />
+            <span>{isLoading.sync ? "Syncing..." : "Sync Data"}</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem className="cursor-pointer" onClick={handleLogout}>
+        <DropdownMenuItem
+          className="cursor-pointer"
+          onClick={handleLogout}
+          disabled={isLoading.logout}
+        >
           <LogOut className="mr-2 h-4 w-4" />
-          <span>Sign out</span>
+          <span>{isLoading.logout ? "Signing out..." : "Sign out"}</span>
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>

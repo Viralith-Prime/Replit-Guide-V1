@@ -2836,6 +2836,6 @@ app.get('/health', async (req, res) => {
           </div>
         </main>
       </div>
-    </div>
+    </PageLayout>
   );
 }

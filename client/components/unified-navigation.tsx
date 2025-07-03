@@ -407,12 +407,22 @@ function NavigationItem({
   return (
     <button
       onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick();
+        }
+      }}
       className={cn(
-        "w-full text-left p-3 rounded-lg transition-all duration-200 group",
+        "w-full text-left p-3 rounded-lg transition-all duration-200 group touch-manipulation",
+        "focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2",
+        "active:scale-95 transform",
         isActive
           ? "bg-primary/10 text-primary border border-primary/20 shadow-sm"
-          : "hover:bg-muted/50 text-muted-foreground hover:text-foreground",
+          : "hover:bg-muted/50 text-muted-foreground hover:text-foreground hover:scale-105",
       )}
+      aria-current={isActive ? "page" : undefined}
+      tabIndex={0}
     >
       <div className="flex items-center space-x-3">
         <div

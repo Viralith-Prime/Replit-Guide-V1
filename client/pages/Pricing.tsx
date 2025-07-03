@@ -1219,6 +1219,6 @@ export default function Pricing() {
           </div>
         </main>
       </div>
-    </div>
+    </PageLayout>
   );
 }

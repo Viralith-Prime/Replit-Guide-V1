@@ -1002,7 +1002,7 @@ function factorialIterative(n) {
                                 project"
                               </div>
                               <div>
-                                • "Create API documentation with examples"
+                                �� "Create API documentation with examples"
                               </div>
                               <div>
                                 • "Explain this complex algorithm with inline
@@ -1497,6 +1497,515 @@ function getUserNamesWithDefaults(users) {
   return users.map(user => {
     const name = user.name || 'Anonymous';
     return name.toUpperCase();
+  });
+}`}</code>
+                              </pre>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>Example 2: Logic Error</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-4">
+                          <div>
+                            <h4 className="font-medium text-sm mb-2 text-red-600">
+                              ❌ Buggy Code:
+                            </h4>
+                            <div className="code-block">
+                              <pre className="text-xs overflow-x-auto">
+                                <code>{`function calculateAverage(numbers) {
+  let sum = 0;
+  for (let i = 0; i <= numbers.length; i++) { // Off-by-one error
+    sum += numbers[i];
+  }
+  return sum / numbers.length;
+}
+
+console.log(calculateAverage([1, 2, 3, 4, 5])); // NaN`}</code>
+                              </pre>
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="font-medium text-sm mb-2">
+                              🤖 AI Analysis:
+                            </h4>
+                            <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded text-sm">
+                              Classic off-by-one error. The loop condition uses
+                              i &lt;= numbers.length, which tries to access an
+                              index that doesn't exist (numbers[5] for array of
+                              length 5), resulting in undefined being added to
+                              sum.
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="font-medium text-sm mb-2 text-green-600">
+                              ✅ Fixed Code:
+                            </h4>
+                            <div className="code-block">
+                              <pre className="text-xs overflow-x-auto">
+                                <code>{`function calculateAverage(numbers) {
+  if (numbers.length === 0) return 0; // Handle empty array
+
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) { // Fixed: use < instead of <=
+    sum += numbers[i];
+  }
+  return sum / numbers.length;
+}
+
+// Even better with reduce:
+function calculateAverageModern(numbers) {
+  if (numbers.length === 0) return 0;
+  const sum = numbers.reduce((acc, num) => acc + num, 0);
+  return sum / numbers.length;
+}`}</code>
+                              </pre>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>Example 3: Async/Promise Error</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-4">
+                          <div>
+                            <h4 className="font-medium text-sm mb-2 text-red-600">
+                              ❌ Buggy Code:
+                            </h4>
+                            <div className="code-block">
+                              <pre className="text-xs overflow-x-auto">
+                                <code>{`async function fetchUserData() {
+  const response = fetch('/api/users');
+  const users = response.json(); // Missing await
+  console.log(users); // Logs Promise object, not data
+  return users;
+}`}</code>
+                              </pre>
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="font-medium text-sm mb-2">
+                              🤖 AI Analysis:
+                            </h4>
+                            <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded text-sm">
+                              Missing await keywords cause the function to work
+                              with Promise objects instead of resolved values.
+                              This is a common async/await mistake.
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="font-medium text-sm mb-2 text-green-600">
+                              ✅ Fixed Code:
+                            </h4>
+                            <div className="code-block">
+                              <pre className="text-xs overflow-x-auto">
+                                <code>{`async function fetchUserData() {
+  try {
+    const response = await fetch('/api/users');
+
+    if (!response.ok) {
+      throw new Error(\`HTTP error! status: \${response.status}\`);
+    }
+
+    const users = await response.json();
+    console.log(users); // Now logs actual data
+    return users;
+  } catch (error) {
+    console.error('Failed to fetch users:', error);
+    throw error;
+  }
+}`}</code>
+                              </pre>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="techniques" className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>Error-First Debugging</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3">
+                          <div className="text-sm">
+                            <strong>1. Read the Error Message Carefully</strong>
+                            <p className="text-muted-foreground text-xs mt-1">
+                              Error messages contain valuable information about
+                              what went wrong and where.
+                            </p>
+                          </div>
+                          <div className="text-sm">
+                            <strong>2. Check the Stack Trace</strong>
+                            <p className="text-muted-foreground text-xs mt-1">
+                              Follow the call stack to find the exact line where
+                              the error occurred.
+                            </p>
+                          </div>
+                          <div className="text-sm">
+                            <strong>3. Understand the Context</strong>
+                            <p className="text-muted-foreground text-xs mt-1">
+                              Look at what your code was trying to do when the
+                              error happened.
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>Systematic Debugging</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3">
+                          <div className="text-sm">
+                            <strong>1. Isolate the Problem</strong>
+                            <p className="text-muted-foreground text-xs mt-1">
+                              Create a minimal reproduction case to narrow down
+                              the issue.
+                            </p>
+                          </div>
+                          <div className="text-sm">
+                            <strong>2. Add Logging</strong>
+                            <p className="text-muted-foreground text-xs mt-1">
+                              Use console.log() strategically to trace execution
+                              flow.
+                            </p>
+                          </div>
+                          <div className="text-sm">
+                            <strong>3. Test Assumptions</strong>
+                            <p className="text-muted-foreground text-xs mt-1">
+                              Verify that variables contain the values you
+                              expect.
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>AI-Powered Debugging Strategies</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="grid md:grid-cols-3 gap-4">
+                        <div className="text-center">
+                          <div className="w-12 h-12 mx-auto mb-3 rounded-lg bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center">
+                            <SearchIcon className="h-6 w-6 text-blue-500" />
+                          </div>
+                          <h4 className="font-medium mb-2">
+                            Error Message Analysis
+                          </h4>
+                          <p className="text-xs text-muted-foreground">
+                            Paste error messages for instant analysis and
+                            solutions
+                          </p>
+                        </div>
+                        <div className="text-center">
+                          <div className="w-12 h-12 mx-auto mb-3 rounded-lg bg-green-100 dark:bg-green-900/20 flex items-center justify-center">
+                            <Code className="h-6 w-6 text-green-500" />
+                          </div>
+                          <h4 className="font-medium mb-2">Code Review</h4>
+                          <p className="text-xs text-muted-foreground">
+                            Ask AI to review problematic code sections for
+                            potential issues
+                          </p>
+                        </div>
+                        <div className="text-center">
+                          <div className="w-12 h-12 mx-auto mb-3 rounded-lg bg-purple-100 dark:bg-purple-900/20 flex items-center justify-center">
+                            <Lightbulb className="h-6 w-6 text-purple-500" />
+                          </div>
+                          <h4 className="font-medium mb-2">Best Practices</h4>
+                          <p className="text-xs text-muted-foreground">
+                            Get suggestions for preventing similar bugs in the
+                            future
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Advanced Debugging Prompts</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-3">
+                        <div className="p-3 bg-muted/20 rounded-lg">
+                          <div className="font-medium text-sm mb-1">
+                            For Runtime Errors:
+                          </div>
+                          <code className="text-xs">
+                            "Analyze this error message and explain why it
+                            occurred: [paste error]"
+                          </code>
+                        </div>
+                        <div className="p-3 bg-muted/20 rounded-lg">
+                          <div className="font-medium text-sm mb-1">
+                            For Logic Bugs:
+                          </div>
+                          <code className="text-xs">
+                            "This function should do X but returns Y. Can you
+                            identify the logic error?"
+                          </code>
+                        </div>
+                        <div className="p-3 bg-muted/20 rounded-lg">
+                          <div className="font-medium text-sm mb-1">
+                            For Performance Issues:
+                          </div>
+                          <code className="text-xs">
+                            "This code is slow. What optimizations would you
+                            suggest?"
+                          </code>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+
+                <TabsContent value="practice" className="space-y-6">
+                  <Card className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 border-red-200 dark:border-red-800">
+                    <CardHeader>
+                      <CardTitle className="flex items-center space-x-2">
+                        <Target className="h-5 w-5 text-red-500" />
+                        <span>Debugging Challenge</span>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <p className="text-sm">
+                          Try to debug these intentionally buggy code snippets
+                          using AI assistance:
+                        </p>
+
+                        <div className="space-y-4">
+                          <div className="border rounded-lg p-4">
+                            <h4 className="font-medium text-sm mb-2">
+                              Challenge 1: Array Bug
+                            </h4>
+                            <div className="code-block text-xs">
+                              <code>{`function findMaxValue(arr) {
+  let max = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+  return max;
+}
+
+console.log(findMaxValue([-5, -2, -10, -1])); // Expected: -1, Got: 0`}</code>
+                            </div>
+                            <div className="mt-2">
+                              <input
+                                type="checkbox"
+                                id="challenge-1"
+                                checked={completedExercises.includes(
+                                  "debug-challenge-1",
+                                )}
+                                onChange={() =>
+                                  toggleExercise("debug-challenge-1")
+                                }
+                                className="rounded mr-2"
+                              />
+                              <label
+                                htmlFor="challenge-1"
+                                className="text-xs"
+                              >
+                                I've identified and fixed the bug
+                              </label>
+                            </div>
+                          </div>
+
+                          <div className="border rounded-lg p-4">
+                            <h4 className="font-medium text-sm mb-2">
+                              Challenge 2: Async Bug
+                            </h4>
+                            <div className="code-block text-xs">
+                              <code>{`function loadUserProfile(userId) {
+  const user = fetch(\`/api/users/\${userId}\`);
+  const profile = fetch(\`/api/profiles/\${user.id}\`);
+  return profile;
+}`}</code>
+                            </div>
+                            <div className="mt-2">
+                              <input
+                                type="checkbox"
+                                id="challenge-2"
+                                checked={completedExercises.includes(
+                                  "debug-challenge-2",
+                                )}
+                                onChange={() =>
+                                  toggleExercise("debug-challenge-2")
+                                }
+                                className="rounded mr-2"
+                              />
+                              <label
+                                htmlFor="challenge-2"
+                                className="text-xs"
+                              >
+                                I've identified and fixed the bug
+                              </label>
+                            </div>
+                          </div>
+
+                          <div className="border rounded-lg p-4">
+                            <h4 className="font-medium text-sm mb-2">
+                              Challenge 3: Scope Bug
+                            </h4>
+                            <div className="code-block text-xs">
+                              <code>{`function createCounters() {
+  const counters = [];
+  for (var i = 0; i < 3; i++) {
+    counters.push(function() {
+      return i;
+    });
+  }
+  return counters;
+}
+
+const counters = createCounters();
+console.log(counters[0]()); // Expected: 0, Got: 3`}</code>
+                            </div>
+                            <div className="mt-2">
+                              <input
+                                type="checkbox"
+                                id="challenge-3"
+                                checked={completedExercises.includes(
+                                  "debug-challenge-3",
+                                )}
+                                onChange={() =>
+                                  toggleExercise("debug-challenge-3")
+                                }
+                                className="rounded mr-2"
+                              />
+                              <label
+                                htmlFor="challenge-3"
+                                className="text-xs"
+                              >
+                                I've identified and fixed the bug
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                          <div className="flex items-start space-x-2">
+                            <Lightbulb className="h-4 w-4 text-blue-500 mt-0.5" />
+                            <div className="text-xs">
+                              <strong>Debugging Tip:</strong> For each challenge,
+                              try to identify the bug first, then ask AI to
+                              confirm your analysis and suggest improvements.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Debugging Best Practices Checklist</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-3">
+                        <div className="flex items-center space-x-2">
+                          <input
+                            type="checkbox"
+                            id="practice-1"
+                            checked={completedExercises.includes(
+                              "debug-practice-1",
+                            )}
+                            onChange={() => toggleExercise("debug-practice-1")}
+                            className="rounded"
+                          />
+                          <label htmlFor="practice-1" className="text-sm">
+                            Always read error messages completely before asking
+                            for help
+                          </label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <input
+                            type="checkbox"
+                            id="practice-2"
+                            checked={completedExercises.includes(
+                              "debug-practice-2",
+                            )}
+                            onChange={() => toggleExercise("debug-practice-2")}
+                            className="rounded"
+                          />
+                          <label htmlFor="practice-2" className="text-sm">
+                            Create minimal reproducible examples for complex bugs
+                          </label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <input
+                            type="checkbox"
+                            id="practice-3"
+                            checked={completedExercises.includes(
+                              "debug-practice-3",
+                            )}
+                            onChange={() => toggleExercise("debug-practice-3")}
+                            className="rounded"
+                          />
+                          <label htmlFor="practice-3" className="text-sm">
+                            Use console.log() strategically to trace execution
+                          </label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <input
+                            type="checkbox"
+                            id="practice-4"
+                            checked={completedExercises.includes(
+                              "debug-practice-4",
+                            )}
+                            onChange={() => toggleExercise("debug-practice-4")}
+                            className="rounded"
+                          />
+                          <label htmlFor="practice-4" className="text-sm">
+                            Validate assumptions with actual data checks
+                          </label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <input
+                            type="checkbox"
+                            id="practice-5"
+                            checked={completedExercises.includes(
+                              "debug-practice-5",
+                            )}
+                            onChange={() => toggleExercise("debug-practice-5")}
+                            className="rounded"
+                          />
+                          <label htmlFor="practice-5" className="text-sm">
+                            Learn from each bug to prevent similar issues
+                          </label>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+              </Tabs>
+            </div>
+          )}
   });
 }
 

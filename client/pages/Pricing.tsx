@@ -442,6 +442,572 @@ export default function Pricing() {
             </div>
           )}
 
+          {currentSection === "features" && (
+            <div className="space-y-8">
+              <div>
+                <h1 className="text-3xl font-bold mb-4">Feature Breakdown</h1>
+                <p className="text-lg text-muted-foreground mb-6">
+                  Compare features across all Replit plans to find the perfect
+                  fit for your needs.
+                </p>
+              </div>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Interactive Feature Comparison</CardTitle>
+                  <CardDescription>
+                    Select features to compare across plans
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="border-b">
+                          <th className="text-left p-3 font-medium">Feature</th>
+                          <th className="text-center p-3 font-medium">Free</th>
+                          <th className="text-center p-3 font-medium bg-primary/5">
+                            Core
+                          </th>
+                          <th className="text-center p-3 font-medium">Teams</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="border-b">
+                          <td className="p-3 font-medium">Basic Resources</td>
+                          <td className="text-center p-3">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3 bg-primary/5">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="p-3 font-medium">
+                            AI Assistance (Limited)
+                          </td>
+                          <td className="text-center p-3">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3 bg-primary/5">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="p-3 font-medium">
+                            Advanced AI (Ghostwriter)
+                          </td>
+                          <td className="text-center p-3">
+                            <X className="h-4 w-4 text-red-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3 bg-primary/5">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="p-3 font-medium">
+                            Higher Resource Limits
+                          </td>
+                          <td className="text-center p-3">
+                            <X className="h-4 w-4 text-red-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3 bg-primary/5">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="p-3 font-medium">Priority Support</td>
+                          <td className="text-center p-3">
+                            <X className="h-4 w-4 text-red-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3 bg-primary/5">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="p-3 font-medium">Custom Domains</td>
+                          <td className="text-center p-3">
+                            <X className="h-4 w-4 text-red-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3 bg-primary/5">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="p-3 font-medium">Team Management</td>
+                          <td className="text-center p-3">
+                            <X className="h-4 w-4 text-red-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3 bg-primary/5">
+                            <X className="h-4 w-4 text-red-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="p-3 font-medium">
+                            Organization Features
+                          </td>
+                          <td className="text-center p-3">
+                            <X className="h-4 w-4 text-red-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3 bg-primary/5">
+                            <X className="h-4 w-4 text-red-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="p-3 font-medium">Team Analytics</td>
+                          <td className="text-center p-3">
+                            <X className="h-4 w-4 text-red-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3 bg-primary/5">
+                            <X className="h-4 w-4 text-red-500 mx-auto" />
+                          </td>
+                          <td className="text-center p-3">
+                            <Check className="h-4 w-4 text-green-500 mx-auto" />
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <div className="grid md:grid-cols-3 gap-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                      <Rocket className="h-5 w-5 text-blue-500" />
+                      <span>Development Features</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center text-sm">
+                        <span>Code Editor</span>
+                        <Badge variant="outline">All Plans</Badge>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span>Multiplayer Editing</span>
+                        <Badge variant="outline">All Plans</Badge>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span>Git Integration</span>
+                        <Badge variant="outline">All Plans</Badge>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span>Package Management</span>
+                        <Badge variant="outline">All Plans</Badge>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span>Database (SQLite)</span>
+                        <Badge variant="outline">All Plans</Badge>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                      <Crown className="h-5 w-5 text-yellow-500" />
+                      <span>Premium Features</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center text-sm">
+                        <span>Enhanced AI</span>
+                        <Badge>Core+</Badge>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span>Always-On Deployments</span>
+                        <Badge>Core+</Badge>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span>Private Deployments</span>
+                        <Badge>Core+</Badge>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span>Custom Domains</span>
+                        <Badge>Core+</Badge>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span>Priority Support</span>
+                        <Badge>Core+</Badge>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                      <Users className="h-5 w-5 text-green-500" />
+                      <span>Team Features</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center text-sm">
+                        <span>User Management</span>
+                        <Badge variant="secondary">Teams Only</Badge>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span>Shared Resources</span>
+                        <Badge variant="secondary">Teams Only</Badge>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span>Team Analytics</span>
+                        <Badge variant="secondary">Teams Only</Badge>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span>Classroom Tools</span>
+                        <Badge variant="secondary">Teams Only</Badge>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span>Organization Management</span>
+                        <Badge variant="secondary">Teams Only</Badge>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          )}
+
+          {currentSection === "calculator" && (
+            <div className="space-y-8">
+              <div>
+                <h1 className="text-3xl font-bold mb-4">Cost Calculator</h1>
+                <p className="text-lg text-muted-foreground mb-6">
+                  Estimate your monthly costs based on your usage patterns and
+                  team size.
+                </p>
+              </div>
+
+              <div className="grid lg:grid-cols-2 gap-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                      <Calculator className="h-5 w-5 text-blue-500" />
+                      <span>Usage Calculator</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    <div>
+                      <Label
+                        htmlFor="plan-select"
+                        className="text-sm font-medium"
+                      >
+                        Select Base Plan
+                      </Label>
+                      <select
+                        id="plan-select"
+                        value={selectedPlan}
+                        onChange={(e) => setSelectedPlan(e.target.value)}
+                        className="w-full mt-2 p-2 border rounded-md"
+                      >
+                        <option value="Free">Free - $0/month</option>
+                        <option value="Core">Core - $20/month</option>
+                        <option value="Teams">Teams - $35/month</option>
+                      </select>
+                    </div>
+
+                    {selectedPlan === "Teams" && (
+                      <div>
+                        <Label
+                          htmlFor="team-size"
+                          className="text-sm font-medium"
+                        >
+                          Team Size: {teamSize} users
+                        </Label>
+                        <input
+                          id="team-size"
+                          type="range"
+                          min="1"
+                          max="50"
+                          value={teamSize}
+                          onChange={(e) =>
+                            setTeamSize(parseInt(e.target.value))
+                          }
+                          className="w-full mt-2"
+                        />
+                        <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                          <span>1</span>
+                          <span>50+</span>
+                        </div>
+                      </div>
+                    )}
+
+                    <div>
+                      <Label
+                        htmlFor="usage-hours"
+                        className="text-sm font-medium"
+                      >
+                        Monthly Usage Hours: {usageHours}
+                      </Label>
+                      <input
+                        id="usage-hours"
+                        type="range"
+                        min="0"
+                        max="500"
+                        value={usageHours}
+                        onChange={(e) =>
+                          setUsageHours(parseInt(e.target.value))
+                        }
+                        className="w-full mt-2"
+                      />
+                      <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                        <span>0</span>
+                        <span>500+</span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <Label className="text-sm font-medium">
+                        Billing Frequency
+                      </Label>
+                      <div className="flex items-center space-x-4 mt-2">
+                        <div className="flex items-center space-x-2">
+                          <input
+                            type="radio"
+                            id="monthly"
+                            checked={!isAnnual}
+                            onChange={() => setIsAnnual(false)}
+                            className="rounded"
+                          />
+                          <Label htmlFor="monthly" className="text-sm">
+                            Monthly
+                          </Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <input
+                            type="radio"
+                            id="annual"
+                            checked={isAnnual}
+                            onChange={() => setIsAnnual(true)}
+                            className="rounded"
+                          />
+                          <Label htmlFor="annual" className="text-sm">
+                            Annual (20% off)
+                          </Label>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                      <TrendingUp className="h-5 w-5 text-green-500" />
+                      <span>Cost Breakdown</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center p-3 bg-muted/20 rounded-lg">
+                        <span className="text-sm font-medium">Base Plan</span>
+                        <span className="font-bold">
+                          {selectedPlan === "Free"
+                            ? "$0"
+                            : selectedPlan === "Core"
+                              ? isAnnual
+                                ? "$192"
+                                : "$20"
+                              : `$${calculateTeamCost()}`}
+                          {isAnnual && selectedPlan !== "Free"
+                            ? "/year"
+                            : "/month"}
+                        </span>
+                      </div>
+
+                      {selectedPlan !== "Free" && (
+                        <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                          <div>
+                            <span className="text-sm font-medium">
+                              Estimated Credits
+                            </span>
+                            <p className="text-xs text-muted-foreground">
+                              Based on {usageHours} hours/month
+                            </p>
+                          </div>
+                          <span className="font-bold">
+                            {Math.round(usageHours * 2.5)} credits
+                          </span>
+                        </div>
+                      )}
+
+                      {isAnnual && selectedPlan !== "Free" && (
+                        <div className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                          <span className="text-sm font-medium text-green-600">
+                            Annual Savings
+                          </span>
+                          <span className="font-bold text-green-600">
+                            -$
+                            {selectedPlan === "Core"
+                              ? "48"
+                              : Math.round(calculateTeamCost() * 0.2 * 12)}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+
+                    <Separator />
+
+                    <div className="flex justify-between items-center p-4 bg-primary/10 rounded-lg">
+                      <span className="text-lg font-bold">Total Cost</span>
+                      <span className="text-xl font-bold text-primary">
+                        {selectedPlan === "Free"
+                          ? "$0"
+                          : selectedPlan === "Core"
+                            ? isAnnual
+                              ? "$192/year"
+                              : "$20/month"
+                            : `$${calculateTeamCost()}${isAnnual ? "/year" : "/month"}`}
+                      </span>
+                    </div>
+
+                    <div className="space-y-2">
+                      <h4 className="font-medium text-sm">What's Included:</h4>
+                      <ul className="text-xs space-y-1 text-muted-foreground">
+                        {selectedPlan === "Free" && (
+                          <>
+                            <li>• Basic development environment</li>
+                            <li>• Limited AI assistance</li>
+                            <li>• Community support</li>
+                            <li>• Public projects</li>
+                          </>
+                        )}
+                        {selectedPlan === "Core" && (
+                          <>
+                            <li>• Everything in Free</li>
+                            <li>• Advanced AI (Ghostwriter)</li>
+                            <li>• Higher resource limits</li>
+                            <li>• Private deployments</li>
+                            <li>• Priority support</li>
+                            <li>• Custom domains</li>
+                          </>
+                        )}
+                        {selectedPlan === "Teams" && (
+                          <>
+                            <li>• Everything in Core</li>
+                            <li>• Team management for {teamSize} users</li>
+                            <li>• Shared resources</li>
+                            <li>• Team analytics</li>
+                            <li>• Organization features</li>
+                          </>
+                        )}
+                      </ul>
+                    </div>
+
+                    <Button className="w-full" asChild>
+                      <a
+                        href={`https://replit.com/pricing?plan=${selectedPlan.toLowerCase()}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Get Started with {selectedPlan}
+                        <ExternalLink className="h-3 w-3 ml-2" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Usage Scenarios</CardTitle>
+                  <CardDescription>
+                    Common use cases and recommended plans
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div className="p-4 border rounded-lg">
+                      <h4 className="font-medium mb-2">Student/Hobbyist</h4>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Learning to code, personal projects, experimenting
+                      </p>
+                      <div className="space-y-2">
+                        <div className="text-xs">
+                          <strong>Recommended:</strong> Free Plan
+                        </div>
+                        <div className="text-xs">
+                          <strong>Usage:</strong> 10-20 hours/month
+                        </div>
+                        <div className="text-xs">
+                          <strong>Cost:</strong> $0/month
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-4 border rounded-lg bg-primary/5">
+                      <h4 className="font-medium mb-2">
+                        Professional Developer
+                      </h4>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Serious projects, client work, advanced features needed
+                      </p>
+                      <div className="space-y-2">
+                        <div className="text-xs">
+                          <strong>Recommended:</strong> Core Plan
+                        </div>
+                        <div className="text-xs">
+                          <strong>Usage:</strong> 40-100 hours/month
+                        </div>
+                        <div className="text-xs">
+                          <strong>Cost:</strong> $20/month ($192/year)
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-4 border rounded-lg">
+                      <h4 className="font-medium mb-2">Team/Organization</h4>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Multiple developers, collaboration, team management
+                      </p>
+                      <div className="space-y-2">
+                        <div className="text-xs">
+                          <strong>Recommended:</strong> Teams Plan
+                        </div>
+                        <div className="text-xs">
+                          <strong>Usage:</strong> 100+ hours/month
+                        </div>
+                        <div className="text-xs">
+                          <strong>Cost:</strong> $35/month per team
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+
           {currentSection === "credits" && (
             <div className="space-y-8">
               <div>

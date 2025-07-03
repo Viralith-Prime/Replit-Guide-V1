@@ -865,6 +865,485 @@ export default function Community() {
             </div>
           )}
 
+          {currentSection === "guidelines" && (
+            <div className="space-y-8">
+              <div>
+                <h1 className="text-3xl font-bold mb-4">
+                  Community Guidelines
+                </h1>
+                <p className="text-lg text-muted-foreground mb-6">
+                  Learn the essential rules and best practices for being a
+                  positive member of the Replit community.
+                </p>
+              </div>
+
+              <Tabs defaultValue="conduct" className="w-full">
+                <TabsList className="grid w-full grid-cols-4">
+                  <TabsTrigger value="conduct">Code of Conduct</TabsTrigger>
+                  <TabsTrigger value="sharing">Sharing Guidelines</TabsTrigger>
+                  <TabsTrigger value="collaboration">Collaboration</TabsTrigger>
+                  <TabsTrigger value="moderation">Moderation</TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="conduct" className="space-y-6">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center space-x-2">
+                        <Shield className="h-5 w-5 text-green-500" />
+                        <span>Core Principles</span>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <h4 className="font-medium text-green-600 mb-3">
+                            ✅ Do's
+                          </h4>
+                          <ul className="space-y-2 text-sm">
+                            <li className="flex items-start space-x-2">
+                              <Check className="h-4 w-4 text-green-500 mt-0.5" />
+                              <span>
+                                Be respectful and inclusive to everyone
+                              </span>
+                            </li>
+                            <li className="flex items-start space-x-2">
+                              <Check className="h-4 w-4 text-green-500 mt-0.5" />
+                              <span>Help newcomers learn and grow</span>
+                            </li>
+                            <li className="flex items-start space-x-2">
+                              <Check className="h-4 w-4 text-green-500 mt-0.5" />
+                              <span>Share knowledge and resources freely</span>
+                            </li>
+                            <li className="flex items-start space-x-2">
+                              <Check className="h-4 w-4 text-green-500 mt-0.5" />
+                              <span>Give constructive feedback</span>
+                            </li>
+                            <li className="flex items-start space-x-2">
+                              <Check className="h-4 w-4 text-green-500 mt-0.5" />
+                              <span>Credit others for their work</span>
+                            </li>
+                            <li className="flex items-start space-x-2">
+                              <Check className="h-4 w-4 text-green-500 mt-0.5" />
+                              <span>Report inappropriate behavior</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-red-600 mb-3">
+                            ❌ Don'ts
+                          </h4>
+                          <ul className="space-y-2 text-sm">
+                            <li className="flex items-start space-x-2">
+                              <X className="h-4 w-4 text-red-500 mt-0.5" />
+                              <span>Harass, bully, or discriminate</span>
+                            </li>
+                            <li className="flex items-start space-x-2">
+                              <X className="h-4 w-4 text-red-500 mt-0.5" />
+                              <span>Share inappropriate content</span>
+                            </li>
+                            <li className="flex items-start space-x-2">
+                              <X className="h-4 w-4 text-red-500 mt-0.5" />
+                              <span>Spam or self-promote excessively</span>
+                            </li>
+                            <li className="flex items-start space-x-2">
+                              <X className="h-4 w-4 text-red-500 mt-0.5" />
+                              <span>Plagiarize others' work</span>
+                            </li>
+                            <li className="flex items-start space-x-2">
+                              <X className="h-4 w-4 text-red-500 mt-0.5" />
+                              <span>Share personal information</span>
+                            </li>
+                            <li className="flex items-start space-x-2">
+                              <X className="h-4 w-4 text-red-500 mt-0.5" />
+                              <span>Use offensive language</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Building a Positive Community</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+                          <h4 className="font-medium mb-2">Be Welcoming</h4>
+                          <p className="text-sm text-muted-foreground">
+                            Remember that everyone was a beginner once. Offer
+                            help and encouragement to newcomers, and create an
+                            environment where people feel safe to ask questions.
+                          </p>
+                        </div>
+                        <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-green-500">
+                          <h4 className="font-medium mb-2">Share Knowledge</h4>
+                          <p className="text-sm text-muted-foreground">
+                            The best communities are built on knowledge sharing.
+                            Write tutorials, share resources, and explain
+                            concepts in ways others can understand.
+                          </p>
+                        </div>
+                        <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+                          <h4 className="font-medium mb-2">Collaborate</h4>
+                          <p className="text-sm text-muted-foreground">
+                            Work together on projects, review each other's code,
+                            and build amazing things as a team. Collaboration
+                            makes everyone better.
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+
+                <TabsContent value="sharing" className="space-y-6">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Project Sharing Best Practices</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="grid md:grid-cols-2 gap-4">
+                          <div>
+                            <h4 className="font-medium mb-3">
+                              Before Sharing:
+                            </h4>
+                            <div className="space-y-2">
+                              <div className="flex items-center space-x-2">
+                                <input
+                                  type="checkbox"
+                                  className="rounded"
+                                  disabled
+                                  checked
+                                />
+                                <span className="text-sm">
+                                  Test your project thoroughly
+                                </span>
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <input
+                                  type="checkbox"
+                                  className="rounded"
+                                  disabled
+                                  checked
+                                />
+                                <span className="text-sm">
+                                  Write a clear README
+                                </span>
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <input
+                                  type="checkbox"
+                                  className="rounded"
+                                  disabled
+                                  checked
+                                />
+                                <span className="text-sm">
+                                  Add appropriate tags
+                                </span>
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <input
+                                  type="checkbox"
+                                  className="rounded"
+                                  disabled
+                                  checked
+                                />
+                                <span className="text-sm">
+                                  Choose an informative title
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <h4 className="font-medium mb-3">
+                              Content Standards:
+                            </h4>
+                            <div className="space-y-2">
+                              <div className="flex items-center space-x-2">
+                                <AlertTriangle className="h-4 w-4 text-yellow-500" />
+                                <span className="text-sm">
+                                  No inappropriate content
+                                </span>
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <AlertTriangle className="h-4 w-4 text-yellow-500" />
+                                <span className="text-sm">
+                                  Respect copyright laws
+                                </span>
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <AlertTriangle className="h-4 w-4 text-yellow-500" />
+                                <span className="text-sm">
+                                  No malicious code
+                                </span>
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <AlertTriangle className="h-4 w-4 text-yellow-500" />
+                                <span className="text-sm">
+                                  Credit all sources
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Comment and Feedback Guidelines</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                          <h4 className="font-medium text-sm mb-2 text-green-600">
+                            Good Feedback Example:
+                          </h4>
+                          <blockquote className="text-sm italic border-l-2 border-green-500 pl-3">
+                            "Really cool project! I love the UI design. One
+                            suggestion: you might want to add input validation
+                            for the email field. Overall, great work on the
+                            responsive layout!"
+                          </blockquote>
+                        </div>
+                        <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                          <h4 className="font-medium text-sm mb-2 text-red-600">
+                            Poor Feedback Example:
+                          </h4>
+                          <blockquote className="text-sm italic border-l-2 border-red-500 pl-3">
+                            "This is terrible. Why would you even share this? My
+                            little sister could code better than this."
+                          </blockquote>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+
+                <TabsContent value="collaboration" className="space-y-6">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Effective Collaboration</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="grid md:grid-cols-3 gap-4">
+                        <div className="text-center">
+                          <div className="w-12 h-12 mx-auto mb-3 rounded-lg bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center">
+                            <MessageSquare className="h-6 w-6 text-blue-500" />
+                          </div>
+                          <h4 className="font-medium mb-2">Communication</h4>
+                          <p className="text-xs text-muted-foreground">
+                            Be clear, patient, and respectful in all
+                            interactions
+                          </p>
+                        </div>
+                        <div className="text-center">
+                          <div className="w-12 h-12 mx-auto mb-3 rounded-lg bg-green-100 dark:bg-green-900/20 flex items-center justify-center">
+                            <Users className="h-6 w-6 text-green-500" />
+                          </div>
+                          <h4 className="font-medium mb-2">Teamwork</h4>
+                          <p className="text-xs text-muted-foreground">
+                            Contribute meaningfully and support team goals
+                          </p>
+                        </div>
+                        <div className="text-center">
+                          <div className="w-12 h-12 mx-auto mb-3 rounded-lg bg-purple-100 dark:bg-purple-900/20 flex items-center justify-center">
+                            <Share2 className="h-6 w-6 text-purple-500" />
+                          </div>
+                          <h4 className="font-medium mb-2">
+                            Knowledge Sharing
+                          </h4>
+                          <p className="text-xs text-muted-foreground">
+                            Document decisions and share learnings with others
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Conflict Resolution</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="space-y-3">
+                          <div className="flex items-start space-x-3">
+                            <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-medium">
+                              1
+                            </div>
+                            <div>
+                              <h4 className="font-medium text-sm">Stay Calm</h4>
+                              <p className="text-xs text-muted-foreground">
+                                Take a step back and approach disagreements with
+                                a level head
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex items-start space-x-3">
+                            <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-medium">
+                              2
+                            </div>
+                            <div>
+                              <h4 className="font-medium text-sm">
+                                Listen Actively
+                              </h4>
+                              <p className="text-xs text-muted-foreground">
+                                Try to understand the other person's perspective
+                                before responding
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex items-start space-x-3">
+                            <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-medium">
+                              3
+                            </div>
+                            <div>
+                              <h4 className="font-medium text-sm">
+                                Find Common Ground
+                              </h4>
+                              <p className="text-xs text-muted-foreground">
+                                Focus on shared goals and work toward mutual
+                                solutions
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex items-start space-x-3">
+                            <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-medium">
+                              4
+                            </div>
+                            <div>
+                              <h4 className="font-medium text-sm">Seek Help</h4>
+                              <p className="text-xs text-muted-foreground">
+                                If conflicts persist, don't hesitate to involve
+                                community moderators
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+
+                <TabsContent value="moderation" className="space-y-6">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Reporting and Moderation</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="grid md:grid-cols-2 gap-4">
+                          <div>
+                            <h4 className="font-medium mb-3">
+                              When to Report:
+                            </h4>
+                            <ul className="space-y-2 text-sm">
+                              <li>• Harassment or bullying behavior</li>
+                              <li>• Inappropriate or offensive content</li>
+                              <li>• Spam or excessive self-promotion</li>
+                              <li>• Copyright violations</li>
+                              <li>• Malicious code or security threats</li>
+                              <li>• Doxxing or privacy violations</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <h4 className="font-medium mb-3">How to Report:</h4>
+                            <ol className="list-decimal list-inside space-y-2 text-sm">
+                              <li>Use the report button on the content</li>
+                              <li>Provide specific details about the issue</li>
+                              <li>Include evidence if available</li>
+                              <li>
+                                Contact moderators directly for urgent issues
+                              </li>
+                              <li>Follow up if necessary</li>
+                            </ol>
+                          </div>
+                        </div>
+
+                        <div className="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border-l-4 border-amber-500">
+                          <div className="flex items-start space-x-2">
+                            <AlertTriangle className="h-4 w-4 text-amber-500 mt-0.5" />
+                            <div>
+                              <h4 className="font-medium text-sm mb-1">
+                                False Reports
+                              </h4>
+                              <p className="text-xs text-muted-foreground">
+                                Submitting false or malicious reports can result
+                                in account restrictions. Only report genuine
+                                violations of community guidelines.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Enforcement Actions</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="grid md:grid-cols-4 gap-3">
+                          <div className="text-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                            <h4 className="font-medium text-sm mb-1">
+                              Warning
+                            </h4>
+                            <p className="text-xs text-muted-foreground">
+                              First-time minor violations
+                            </p>
+                          </div>
+                          <div className="text-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
+                            <h4 className="font-medium text-sm mb-1">
+                              Timeout
+                            </h4>
+                            <p className="text-xs text-muted-foreground">
+                              Temporary restriction from posting
+                            </p>
+                          </div>
+                          <div className="text-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                            <h4 className="font-medium text-sm mb-1">
+                              Suspension
+                            </h4>
+                            <p className="text-xs text-muted-foreground">
+                              Temporary account suspension
+                            </p>
+                          </div>
+                          <div className="text-center p-3 bg-gray-50 dark:bg-gray-900/20 rounded-lg">
+                            <h4 className="font-medium text-sm mb-1">
+                              Permanent Ban
+                            </h4>
+                            <p className="text-xs text-muted-foreground">
+                              Severe or repeated violations
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                          <h4 className="font-medium text-sm mb-1">
+                            Appeals Process
+                          </h4>
+                          <p className="text-xs text-muted-foreground">
+                            If you believe a moderation action was taken in
+                            error, you can appeal through the official support
+                            channels. Provide detailed information about your
+                            case and any relevant evidence.
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+              </Tabs>
+            </div>
+          )}
+
           {/* Navigation */}
           <div className="flex justify-between pt-12">
             <Button variant="outline" asChild>

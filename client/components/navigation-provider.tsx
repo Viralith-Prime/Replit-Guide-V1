@@ -610,6 +610,12 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
     setBreadcrumbs,
     getFilteredNavigation,
     searchPages,
+    saveScrollPosition,
+    restoreScrollPosition,
+    setActiveSection,
+    setKeyboardFocus,
+    handleKeyboardNavigation,
+    preloadPage,
   };
 
   return (

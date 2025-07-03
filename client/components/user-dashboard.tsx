@@ -28,7 +28,7 @@ import {
   BookOpen,
   Users,
   Settings,
-  Sync,
+  RefreshCw,
   Bell,
   Heart,
 } from "lucide-react";

@@ -24,7 +24,7 @@ import {
   Plus,
   Sparkles,
   Heart,
-  Sync,
+  RefreshCw,
 } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -190,7 +190,7 @@ function UserMenu() {
             <DropdownMenuShortcut>⌘,</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem className="cursor-pointer">
-            <Sync className="mr-2 h-4 w-4" />
+            <RefreshCw className="mr-2 h-4 w-4" />
             <span>Sync Data</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
@@ -290,7 +290,7 @@ export function AccountBenefits({
       case "progress":
         return <Trophy className="w-4 h-4" />;
       case "sync":
-        return <Sync className="w-4 h-4" />;
+        return <RefreshCw className="w-4 h-4" />;
       default:
         return <Plus className="w-4 h-4" />;
     }

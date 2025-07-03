@@ -22,6 +22,7 @@ import {
   Terminal,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const features = [
   {
@@ -93,32 +94,35 @@ export default function Index() {
             </div>
             <span className="text-xl font-bold">Replit Guide</span>
           </div>
-          <nav className="hidden md:flex items-center space-x-6">
-            <Link
-              to="/getting-started"
-              className="text-sm font-medium hover:text-primary transition-colors"
-            >
-              Getting Started
-            </Link>
-            <Link
-              to="/core-features"
-              className="text-sm font-medium hover:text-primary transition-colors"
-            >
-              Features
-            </Link>
-            <Link
-              to="/ai-tools"
-              className="text-sm font-medium hover:text-primary transition-colors"
-            >
-              AI Tools
-            </Link>
-            <Link
-              to="/community"
-              className="text-sm font-medium hover:text-primary transition-colors"
-            >
-              Community
-            </Link>
-          </nav>
+          <div className="flex items-center space-x-6">
+            <nav className="hidden md:flex items-center space-x-6">
+              <Link
+                to="/getting-started"
+                className="text-sm font-medium hover:text-primary transition-colors"
+              >
+                Getting Started
+              </Link>
+              <Link
+                to="/core-features"
+                className="text-sm font-medium hover:text-primary transition-colors"
+              >
+                Features
+              </Link>
+              <Link
+                to="/ai-tools"
+                className="text-sm font-medium hover:text-primary transition-colors"
+              >
+                AI Tools
+              </Link>
+              <Link
+                to="/community"
+                className="text-sm font-medium hover:text-primary transition-colors"
+              >
+                Community
+              </Link>
+            </nav>
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 

@@ -77,20 +77,20 @@ const plans = [
     popular: false,
     features: {
       included: [
-        "Unlimited public repls",
-        "10GB storage",
-        "Basic AI assistance",
+        "Basic resources",
+        "Public and private Repls",
+        "Limited AI assistance",
         "Community access",
-        "Web hosting",
+        "Limited deployments",
         "Collaborative editing",
       ],
       excluded: [
-        "Private repls (limited)",
-        "Always-on deployments",
         "Advanced AI features",
+        "Higher resource limits",
         "Priority support",
         "Custom domains",
         "Team management",
+        "Advanced analytics",
       ],
     },
     ctaText: "Get Started Free",
@@ -98,88 +98,58 @@ const plans = [
   },
   {
     name: "Core",
-    price: "$7",
+    price: "$20",
     period: "per month",
-    description: "Essential features for serious developers",
+    description: "More resources and advanced AI for serious developers",
     popular: true,
     features: {
       included: [
         "Everything in Free",
-        "Unlimited private repls",
-        "50GB storage",
-        "Enhanced AI features",
-        "Background tasks",
-        "Custom themes",
-        "Advanced debugging",
-      ],
-      excluded: [
-        "Always-on deployments",
-        "Team collaboration",
-        "Priority support",
-        "Advanced analytics",
-        "Custom domains",
-        "Enterprise features",
-      ],
-    },
-    ctaText: "Start Core Plan",
-    ctaLink: "https://replit.com/pricing",
-  },
-  {
-    name: "Pro",
-    price: "$20",
-    period: "per month",
-    description: "Professional tools for power users",
-    popular: false,
-    features: {
-      included: [
-        "Everything in Core",
-        "Unlimited storage",
-        "Always-on deployments",
-        "Advanced AI assistance",
+        "More resources",
+        "Advanced AI (Ghostwriter)",
+        "Private deployments",
+        "Higher limits",
         "Priority support",
         "Custom domains",
-        "Advanced analytics",
-        "API access",
       ],
       excluded: [
-        "Team management",
-        "Enterprise security",
-        "SLA guarantees",
-        "Dedicated support",
-        "Custom integrations",
-        "Volume discounts",
+        "Multi-user management",
+        "Team analytics",
+        "Classroom tools",
+        "Shared team resources",
+        "Organization features",
+        "Enterprise support",
       ],
     },
-    ctaText: "Upgrade to Pro",
+    ctaText: "Upgrade to Core",
     ctaLink: "https://replit.com/pricing",
   },
   {
     name: "Teams",
-    price: "$25",
-    period: "per user/month",
-    description: "Collaborative development for teams",
+    price: "$35",
+    period: "per month",
+    description: "Collaborative workspaces for organizations and classrooms",
     popular: false,
     features: {
       included: [
-        "Everything in Pro",
-        "Team management",
-        "Shared workspaces",
-        "Role-based permissions",
+        "Everything in Core",
+        "Multi-user management",
+        "Classroom/org tools",
+        "Shared resources",
         "Team analytics",
-        "Dedicated support",
-        "SSO integration",
-        "Advanced security",
+        "Advanced collaboration",
+        "Organization features",
       ],
       excluded: [
         "Enterprise SLA",
         "Custom contracts",
         "Dedicated infrastructure",
-        "Compliance certifications",
         "24/7 phone support",
-        "Custom training",
+        "Custom integrations",
+        "Compliance certifications",
       ],
     },
-    ctaText: "Contact Sales",
+    ctaText: "Get Teams Plan",
     ctaLink: "https://replit.com/teams",
   },
 ];
@@ -259,8 +229,8 @@ export default function Pricing() {
   };
 
   const calculateTeamCost = () => {
-    const basePrice = 25;
-    const monthlyCost = teamSize * basePrice;
+    const basePrice = 35;
+    const monthlyCost = basePrice; // Teams plan is $35/month total, not per user
     return isAnnual ? Math.round(monthlyCost * 12 * 0.8) : monthlyCost;
   };
 
@@ -378,7 +348,7 @@ export default function Pricing() {
                 </div>
               </div>
 
-              <div className="grid lg:grid-cols-4 gap-6">
+              <div className="grid lg:grid-cols-3 gap-6">
                 {plans.map((plan, index) => (
                   <Card
                     key={index}
@@ -547,19 +517,15 @@ export default function Pricing() {
                     <div className="space-y-3">
                       <div className="flex justify-between items-center">
                         <span className="text-sm">Free Plan</span>
-                        <Badge variant="outline">100 credits/month</Badge>
+                        <Badge variant="outline">Limited AI uses/month</Badge>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-sm">Core Plan</span>
-                        <Badge variant="secondary">500 credits/month</Badge>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm">Pro Plan</span>
-                        <Badge variant="default">2,000 credits/month</Badge>
+                        <Badge variant="secondary">More AI uses/month</Badge>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-sm">Teams Plan</span>
-                        <Badge variant="default">5,000 credits/month</Badge>
+                        <Badge variant="default">Full AI access</Badge>
                       </div>
                     </div>
 

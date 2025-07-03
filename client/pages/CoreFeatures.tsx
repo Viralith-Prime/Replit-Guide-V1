@@ -173,15 +173,13 @@ export default function CoreFeatures() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" asChild>
-              <Link to="/">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Guide
+    <PageLayout
+      title="Core Features"
+      description="Explore Replit's powerful development features and tools"
+      breadcrumbItems={breadcrumbItems}
+      metadata={pageMetadata}
+    >
+      <div className="flex">
               </Link>
             </Button>
             <Separator orientation="vertical" className="h-6" />
@@ -963,7 +961,7 @@ export default function CoreFeatures() {
                           </h4>
                           <ul className="text-xs space-y-1">
                             <li>• Pull before starting new work</li>
-                            <li>• Use descriptive branch names</li>
+                            <li>��� Use descriptive branch names</li>
                             <li>• Keep commits small and focused</li>
                             <li>• Test before pushing</li>
                             <li>• Review code before merging</li>

@@ -62,7 +62,7 @@ const features = [
     icon: CreditCard,
     title: "Plans & Pricing",
     description:
-      "Understand Replit's subscription tiers and choose the right plan for your needs.",
+      "Explore Free, Core ($20/month), and Teams ($35/month) plans to find your perfect fit.",
     href: "/pricing",
     level: "All Levels",
   },

@@ -2038,25 +2038,6 @@ console.log(counters[0]()); // Expected: 0, Got: 3`}</code>
     </div>
   );
 }
-                              </pre>
-                            </div>
-                          </div>
-
-                          <div>
-                            <h4 className="font-medium text-sm mb-2">
-                              💡 Prevention Tips:
-                            </h4>
-                            <ul className="text-sm space-y-1">
-                              <li>
-                                • Write unit tests with known expected outputs
-                              </li>
-                              <li>
-                                • Use descriptive parameter names
-                                (discountPercent vs discountDecimal)
-                              </li>
-                              <li>
-                                • Add input validation to catch invalid data
-                                early
                               </li>
                               <li>
                                 • Document expected input formats in comments

@@ -1,3 +1,4 @@
+import { PageLayout } from "@/components/page-layout";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -1248,7 +1249,7 @@ if __name__ == "__main__":
                             <h5 className="font-medium mb-2">Beginner:</h5>
                             <ul className="space-y-1 text-xs">
                               <li>• Create a calculator with error handling</li>
-                              <li>• Build a todo list with persistence</li>
+                              <li>��� Build a todo list with persistence</li>
                               <li>• Generate a password validator</li>
                             </ul>
                           </div>

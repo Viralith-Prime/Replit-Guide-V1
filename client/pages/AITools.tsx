@@ -2027,9 +2027,6 @@ console.log(counters[0]()); // Expected: 0, Got: 3`}</code>
     </div>
   );
 }
-  { name: "John" },
-  { name: "Jane" },
-  { id: 3, email: "bob@example.com" },
   { name: "Alice" }
 ];
 

@@ -25,6 +25,7 @@ const AITools = lazy(() => import("./pages/AITools"));
 const Community = lazy(() => import("./pages/Community"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Advanced = lazy(() => import("./pages/Advanced"));
+const Profile = lazy(() => import("./pages/Profile"));
 
 const queryClient = new QueryClient();
 
@@ -55,6 +56,7 @@ const App = () => (
                         <Route path="/community" element={<Community />} />
                         <Route path="/pricing" element={<Pricing />} />
                         <Route path="/advanced" element={<Advanced />} />
+                        <Route path="/profile" element={<Profile />} />
                         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                         <Route path="*" element={<NotFound />} />
                       </Routes>
